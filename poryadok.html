@@ -1,0 +1,79 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Порядок и единообразие — разбор</title><style>
+:root{--bg:#f5f2ec;--surface:#fffdf9;--ink:#1f1e1a;--muted:#6b665c;--faint:#98917f;--line:#e5dfd2;
+--accent:#3f5b3a;--accent2:#6b8f5e;--soft:#e8efe3;--warn-bg:#f3e6d6;--warn-ink:#8a5a22;--maxw:82rem;
+--serif:"Iowan Old Style",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#14150f;--surface:#1d1f17;--ink:#e9e7dc;--muted:#a3a08f;--faint:#726f60;
+--line:#2b2d22;--accent:#9dc08b;--accent2:#b6d3a4;--soft:#23271d;--warn-bg:#33261a;--warn-ink:#d6a468}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(1.2rem,3vw,2.6rem) clamp(.8rem,3vw,2rem) 4rem}
+h1{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.6rem);margin:0 0 .3rem;letter-spacing:-.01em}
+.lede{color:var(--muted);margin:0 0 1.2rem;max-width:52rem}
+.stats{display:flex;flex-wrap:wrap;gap:1.4rem;margin:0 0 1.4rem;font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--serif);font-size:1.4rem;display:block;line-height:1.1}
+.stat span{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin:0 0 1rem}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:.45rem .9rem;border-radius:9px;
+font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){.tab[aria-pressed="true"]{color:#14150f}}
+#q{width:100%;max-width:26rem;padding:.55rem .8rem;border:1px solid var(--line);border-radius:9px;
+background:var(--surface);color:var(--ink);font:inherit;margin:0 0 1rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+th{text-align:left;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);
+padding:.6rem .55rem;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:.55rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.name{font-weight:600;color:var(--accent2)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+a{color:var(--accent2)}a:hover{text-decoration:none}
+.badge{font-size:.7rem;font-weight:600;padding:.2rem .45rem;border-radius:6px;background:var(--soft);color:var(--accent);white-space:nowrap}
+.badge.vid{background:var(--warn-bg);color:var(--warn-ink)}
+.wrapscroll{overflow-x:auto}\n.sub{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--accent2);border-bottom:2px solid var(--accent2);padding-bottom:.3rem}\n.sub2{font-size:.92rem;font-weight:600;margin:1.1rem 0 .35rem;color:var(--ink)}\n.cnt{color:var(--faint);font-weight:400;font-variant-numeric:tabular-nums}
+.desc{font-size:.8rem;color:var(--muted);font-weight:400;margin:.25rem 0 0;max-width:46rem;line-height:1.45}
+.note{margin:1.2rem 0;padding:.7rem .9rem;background:var(--warn-bg);color:var(--warn-ink);border-radius:9px;font-size:.86rem}
+footer{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--faint);font-size:.8rem}
+</style>
+<main>
+<h1>Порядок материала и единообразие записей</h1>
+<p class="lede">Разбор 26 книг Pro Islam (3 864 записи в листах аудио, видео и ссылок) и двух страниц
+каталога (265 материалов). Ничего не меняли — это список того, что нашлось, и что предлагаю сделать.
+Проверки лежат в <code>sources/audit_structure.py</code>, повторяются одной командой.</p>
+
+<h2>1. Порядок</h2>
+<div class="wrapscroll"><table><thead><tr><th>что</th><th>где</th><th>что сейчас</th><th>предложение</th></tr></thead><tbody><tr><td>Порядок глав</td><td>namaz</td><td>Первой главой стоит служебная «Статьи и ссылки» — без номера, перед всем содержательным материалом</td><td>Служебные главы (статьи, шпаргалки, PDF) — в конец книги; нумерация с первой содержательной</td></tr><tr><td>Порядок глав</td><td>namaz, гл. 19–26</td><td>Восемь книг «Сахих Муслим» идут по алфавиту: намаз → два праздника → мечети → путник → пятничный → затмение → очищение</td><td>Внутри свода — порядок самого свода: очищение → намаз → мечети → путник → пятничная → два праздника → дождь → затмение</td></tr><tr><td>Порядок глав</td><td>pro_ramadan_audio</td><td>Главы 16–33 идут по алфавиту названий («И пришёл…», «Как провести…», «Краткое…», «Разделы…»), это хвост дописанного материала</td><td>Сложить по смыслу: сперва общее о посте, потом разборы матнов, потом своды хадисов</td></tr><tr><td>Нумерация глав</td><td>pro_ramadan_audio</td><td>Нумерация с дырой: после 14 сразу 16, последняя 33 при 32 главах</td><td>Пересчитать подряд 1…N</td></tr><tr><td>Нумерация глав</td><td>navakid_islam (23), usul_sitta (21)</td><td>Главы не пронумерованы вовсе</td><td>Пронумеровать, как в остальных 24 книгах</td></tr><tr><td>Нумерация глав</td><td>40_hadis, kawaid_arba, kitab_tauhid, usul_sunna, zakat</td><td>«Вступление», «Заключение», «О закяте» без номера — нумерация начинается со второй главы</td><td>Либо нумеровать все главы, либо сознательно оставить служебные без номера — но одинаково во всех книгах</td></tr><tr><td>Нумерация записей</td><td>manhaj гл. 14; namaz гл. 16 и 27; pro_ramadan_audio гл. 8, 20, 26, 29</td><td>Внутри пронумерованной главы часть записей без номера — в приложении они встают вперемешку</td><td>Пронумеровать «N. » все записи главы</td></tr><tr><td>Имя главы</td><td>namaz, гл. 5</td><td>В листе texts «Глава “Омовения” из книги “Уроки по фикху”», в audios и links — «Глава “Ат-тахара”…»</td><td>Одно название во всех листах</td></tr><tr><td>Каталог</td><td>дополнения (17 тем)</td><td>Порядок только по длительности; учебной последовательности нет ни в одной теме</td><td>Проставить учебный порядок там, где он есть у источника (как сделано в «Науках о хадисах» и «Арабском»)</td></tr><tr><td>Каталог</td><td>статьи, 139 шт.</td><td>Идут в порядке добавления; главы заданы только у 14 статей</td><td>Разложить статьи по главам, внутри главы — по алфавиту</td></tr></tbody></table></div>
+
+<h2>2. Имена чтецов</h2>
+<p class="lede">31 написание на 25 человек. Шесть человек записаны по-разному; в скобках — сколько раз
+встречается каждое написание.</p>
+<div class="wrapscroll"><table><thead><tr><th>основное написание</th><th>раз</th><th>другие написания</th><th>предлагаемый канон</th></tr></thead><tbody><tr><td>Абу Яхья Крымский</td><td>917</td><td>Арсен абу Яхья ×62, Арсен Абу Яхья ×2</td><td>Абу Яхья Крымский</td></tr><tr><td>Динар абу Идрис</td><td>371</td><td>Динар Абу Идрис ×3</td><td>Динар абу Идрис</td></tr><tr><td>Иса абу Абдур-Рахман</td><td>104</td><td>Иса абу Абдуррахман ×5, «Иса абу Абдуррахман (шейх аль-Усеймин)» ×16</td><td>Иса абу Абдур-Рахман</td></tr><tr><td>Сирадж абу Тальха</td><td>20</td><td>Сирадж Абу Тальха ×21</td><td>выбрать одно — сейчас пополам</td></tr><tr><td>Ильшат абу Сальман</td><td>3</td><td>Ильшат Абу Сальман ×1</td><td>Ильшат абу Сальман</td></tr><tr><td>Два чтеца в одном поле</td><td>3</td><td>«Абу Яхья Крымский · Абу Умар ас-Сыям»</td><td>оставить разделителем « · » — но записать правило</td></tr></tbody></table></div>
+<p class="lede">Канон уже есть в коде (<code>normalize_tracks.canon_lector</code>) и применяется к
+каталогу, но к таблицам книг его никто не применял — отсюда расхождение. «(шейх аль-Усеймин)» в поле
+чтеца — это автор разбираемой книги, а не чтец: ему место в названии главы или в описании.</p>
+
+<h2>3. Что лежит в колонке «подзаголовок»</h2>
+<p class="lede">Одна и та же колонка занята четырьмя разными вещами — поэтому «чтец» в приложении
+показывается не везде и не всегда одно и то же.</p>
+<div class="wrapscroll"><table><thead><tr><th>смысл</th><th>строк</th><th>пример</th><th>где</th></tr></thead><tbody><tr><td>чтец</td><td>2594</td><td>Абу Яхья Крымский</td><td>так и задумано</td></tr><tr><td>тема урока или пункт матна</td><td>896</td><td>«Дела (оцениваются) только по намерениям», «Положение Сунны»</td><td>40_hadis, usul_sunna, durus_ul_muhimma: подзаголовок описывает урок, чтеца там нет вовсе</td></tr><tr><td>структурная подпись</td><td>323</td><td>«Глава 7», «Первый пункт», «Вопросы детям 3»</td><td>kitab_tauhid, navakid_islam, kawaid_arba, islam_kids</td></tr><tr><td>тип файла</td><td>≈200</td><td>«Книга PDF», «Статья PDF»</td><td>namaz (74), sud (25), nikah (27), adab (18), bidaa (17) — в листах ссылок</td></tr><tr><td>пусто</td><td>347</td><td>—</td><td>islam_beginners (104), pro_ramadan_audio (230)</td></tr></tbody></table></div>
+<p class="lede">Предложение: закрепить правило — <b>подзаголовок = чтец</b> для аудио и видео;
+тему урока дописывать в название через « — »; тип файла («Книга PDF») не хранить вовсе — он и так
+виден по ссылке; структурные подписи («Первый пункт») — в название.</p>
+
+<h2>4. Автор внутри названия</h2>
+<p class="lede">В 14 строках книг и 7 строках каталога автор книги вписан в название: «Последствия смут
+— шейх ‘Абдур-Раззакъ аль-Бадр», «Твой хиджаб, о мусульманка — Шейх ‘Абдур-Разак». При этом чтец стоит
+в своей колонке. Это не ошибка, но записано так лишь местами: в большинстве строк автор не указан
+нигде. Предлагаю одно из двух: либо автор всегда в названии после « — », либо нигде, а в описании главы.</p>
+
+<h2>Порядок работ, если согласны</h2>
+<ol class="tl">
+<li>Свести имена чтецов к канону — 26 книг, правка автоматическая, проверяется до и после.</li>
+<li>Пронумеровать главы там, где нумерации нет, и закрыть дыру в «Лекциях о посте».</li>
+<li>Пронумеровать записи внутри семи глав, где часть без номеров.</li>
+<li>Переставить служебные главы в конец и выстроить своды хадисов в порядке самого свода.</li>
+<li>Каталог: учебный порядок по темам, статьи — по главам.</li>
+</ol>
+<p class="lede">Первые три пункта — механические и безопасные. Четвёртый меняет порядок глав, а значит
+и блок <code>chapters</code> в books_info: его надо будет обновить одновременно.</p>
+<footer><a href="index.html">← к обзору</a></footer>
+</main>
