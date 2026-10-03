@@ -33,14 +33,19 @@ a{color:var(--accent2)}a:hover{text-decoration:none}
 .desc{font-size:.8rem;color:var(--muted);font-weight:400;margin:.25rem 0 0;max-width:46rem;line-height:1.45}
 .note{margin:1.2rem 0;padding:.7rem .9rem;background:var(--warn-bg);color:var(--warn-ink);border-radius:9px;font-size:.86rem}
 footer{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--faint);font-size:.8rem}
+.wrap{overflow-wrap:anywhere}
+table.dec td:first-child{white-space:nowrap}
+@media (max-width:640px){table.dec thead{display:none}table.dec tr,table.dec td{display:block}
+table.dec td{border:0;padding:.15rem .7rem}table.dec tr{border-bottom:1px solid var(--line);padding:.55rem 0}
+table.dec tr:last-child{border-bottom:0}table.dec td:last-child{color:var(--muted)}}
 </style>
-<main>
+<main class="wrap">
 <h1>Порядок материала и единообразие записей</h1>
 <p class="lede">Разбор 26 книг Pro Islam (3 869 аудиозаписей и ссылки) и каталога. Сверху — что нужно от вас и что могу сделать сам; ниже — принятые соглашения; в самом низу — разбор и сделанное. Обновлено 03.10.</p>
 
 <h2>Нужно от вас</h2>
 <h3 class="sub2">Решения</h3>
-<div class="wrapscroll"><table><thead><tr><th></th><th>вопрос</th><th>варианты · что предлагаю</th></tr></thead><tbody>
+<div class="wrapscroll"><table class="dec"><thead><tr><th></th><th>вопрос</th><th>варианты · что предлагаю</th></tr></thead><tbody>
 <tr><td class="name">Д1</td><td>Главы по вашим правилам: служебные (статьи, вступление, заключение) — без номера, содержательные — с единицы. 186 переименований в 15 книгах, например в намазе «1. Статьи и ссылки» → «Статьи и ссылки», «2. Краткое описание молитвы…» → «1. Краткое описание молитвы…»</td><td>Безопасно: порядок глав не меняется, отметки пользователей не страдают. Нужно только «делай» — меняю книги и books_info одним заходом.</td></tr>
 <tr><td class="name">Д2</td><td>Глава со статьями — первой ещё в 4 книгах: hajj (сейчас 7-я из 15), jamaa_sekti (13-я из 17), islam_beginners (3-я из 14), islam_znakomstvo (4-я из 8)</td><td>Приложение помнит закладки, «прочитано» и место остановки по номеру главы — у тех, кто уже читал эти книги, отметки съедут на соседние главы. а) перенести и принять это — предлагаю; б) не переносить; в) доработать приложение, чтобы отметки переезжали с главой.</td></tr>
 <tr><td class="name">Д3</td><td>Порядок по смыслу: в намазе (гл. 19–26) восемь книг «Сахих Муслим» стоят по алфавиту; в «Лекциях о посте» хвост (гл. 16–33) — тоже по алфавиту</td><td>Намаз — в порядке самого свода: очищение → намаз → мечети → путник → пятничная → два праздника → дождь → затмение. Для поста предложу порядок: общее о посте → разборы матнов → своды хадисов. Тоже сдвигает отметки (см. Д2).</td></tr>
