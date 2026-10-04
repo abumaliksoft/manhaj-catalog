@@ -102,7 +102,7 @@ function report() {
     const v = tr.querySelector("select").value, t = tr.querySelector("input").value.trim();
     if (!v && !t) return null;
     const who = LABEL[v] || v || "";
-    return [r.id, r.book, r.chapter, who, t].join(" | ");
+    return [r.id, r.book, r.chapter, r.title, who, t].join(" | ");
   }).filter(Boolean);
   return "Ответ со страницы «Чей голос» (chtecy-v1)\n\n```\n" + lines.join("\n") + "\n```\n";
 }
