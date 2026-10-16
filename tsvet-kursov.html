@@ -1,0 +1,95 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Цвет курсов</title><style>
+:root{--bg:#f5f2ec;--surface:#fffdf9;--ink:#1f1e1a;--muted:#6b665c;--faint:#98917f;--line:#e5dfd2;
+--accent:#3f5b3a;--accent2:#6b8f5e;--soft:#e8efe3;--warn-bg:#f3e6d6;--warn-ink:#8a5a22;--maxw:82rem;
+--serif:"Iowan Old Style",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#14150f;--surface:#1d1f17;--ink:#e9e7dc;--muted:#a3a08f;--faint:#726f60;
+--line:#2b2d22;--accent:#9dc08b;--accent2:#b6d3a4;--soft:#23271d;--warn-bg:#33261a;--warn-ink:#d6a468}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(1.2rem,3vw,2.6rem) clamp(.8rem,3vw,2rem) 4rem}
+h1{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.6rem);margin:0 0 .3rem;letter-spacing:-.01em}
+.lede{color:var(--muted);margin:0 0 1.2rem;max-width:52rem}
+.stats{display:flex;flex-wrap:wrap;gap:1.4rem;margin:0 0 1.4rem;font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--serif);font-size:1.4rem;display:block;line-height:1.1}
+.stat span{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin:0 0 1rem}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:.45rem .9rem;border-radius:9px;
+font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){.tab[aria-pressed="true"]{color:#14150f}}
+#q{width:100%;max-width:26rem;padding:.55rem .8rem;border:1px solid var(--line);border-radius:9px;
+background:var(--surface);color:var(--ink);font:inherit;margin:0 0 1rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+th{text-align:left;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);
+padding:.6rem .55rem;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:.55rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.name{font-weight:600;color:var(--accent2)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+a{color:var(--accent2)}a:hover{text-decoration:none}
+.badge{font-size:.7rem;font-weight:600;padding:.2rem .45rem;border-radius:6px;background:var(--soft);color:var(--accent);white-space:nowrap}
+.badge.vid{background:var(--warn-bg);color:var(--warn-ink)}
+.wrapscroll{overflow-x:auto}\n.sub{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--accent2);border-bottom:2px solid var(--accent2);padding-bottom:.3rem}\n.sub2{font-size:.92rem;font-weight:600;margin:1.1rem 0 .35rem;color:var(--ink)}\n.cnt{color:var(--faint);font-weight:400;font-variant-numeric:tabular-nums}
+.desc{font-size:.8rem;color:var(--muted);font-weight:400;margin:.25rem 0 0;max-width:46rem;line-height:1.45}
+.note{margin:1.2rem 0;padding:.7rem .9rem;background:var(--warn-bg);color:var(--warn-ink);border-radius:9px;font-size:.86rem}
+footer{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--faint);font-size:.8rem}
+.wrap{overflow-wrap:anywhere}
+table.dec td:first-child{white-space:nowrap}
+@media (max-width:640px){table.dec thead{display:none}table.dec tr,table.dec td{display:block}
+table.dec td{border:0;padding:.15rem .7rem}table.dec tr{border-bottom:1px solid var(--line);padding:.55rem 0}
+table.dec tr:last-child{border-bottom:0}table.dec td:last-child{color:var(--muted)}}
+
+.chip{display:inline-block;color:#fff;font-weight:600;padding:.3rem .8rem;border-radius:999px;font-size:.9rem}
+.covers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;margin:.5rem 0 1rem}
+.cover{aspect-ratio:3/4;border-radius:10px;color:#fff;padding:.5rem;display:flex;flex-direction:column;justify-content:space-between;
+font-size:.78rem;font-weight:600;line-height:1.25;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.cover small{font-weight:400;opacity:.75;font-size:.68rem}
+.opt{display:flex;gap:.6rem;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:.7rem .8rem .1rem;margin:.7rem 0;cursor:pointer;background:var(--surface)}
+.opt input{margin-top:.45rem;transform:scale(1.25)} .opt>div{flex:1;min-width:0}
+.opt:has(input:checked){border-color:var(--accent);background:var(--soft)}
+details.now{margin:1rem 0} details.now summary{cursor:pointer;font-weight:600}
+textarea{width:100%;font:inherit;font-size:.9rem;padding:.5rem;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.bar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.8rem 0}
+.btn{border:1px solid var(--accent);background:var(--accent);color:#fff;padding:.55rem 1rem;border-radius:9px;font:inherit;font-weight:600;cursor:pointer}
+.btn.alt{background:transparent;color:var(--accent2)}@media (prefers-color-scheme:dark){.btn{color:#14150f}.btn.alt{color:var(--accent2)}}
+#msg{color:var(--muted);font-size:.9rem;flex-basis:100%}
+</style></head><body><main class="wrap">
+<h1>Цвет курсов</h1>
+<section class="need"><h2>Нужно от вас</h2>
+<p>Выберите цвет темы «Курсы». У каждой темы свой цвет, а обложки её книг — тёмные оттенки этого цвета; у четырёх
+книг курсов оттенки разные, чтобы книги отличались друг от друга. Свободные от других тем цвета — ниже; нынешние
+темы для сравнения — под списком. Можно выбрать вариант и дописать пожелание (например, «светлее»).</p>
+<label class="opt"><input type="radio" name="c" value="orange"><div><div class="theme"><span class="chip" style="background:#EF6C00">Курсы</span> <b>Оранжевый</b> <small>#EF6C00 · ни на что не похож</small><div class="covers"><div class="cover" style="background:#BF5600"><span>Даура</span><small>#BF5600</small></div><div class="cover" style="background:#944300"><span>Марказ «К Исламу»</span><small>#944300</small></div><div class="cover" style="background:#6C3100"><span>Ключ счастья</span><small>#6C3100</small></div><div class="cover" style="background:#482000"><span>Основы шариатских наук</span><small>#482000</small></div></div></div></div></label><label class="opt"><input type="radio" name="c" value="raspberry"><div><div class="theme"><span class="chip" style="background:#C2185B">Курсы</span> <b>Малиновый</b> <small>#C2185B · ни на что не похож</small><div class="covers"><div class="cover" style="background:#9B1349"><span>Даура</span><small>#9B1349</small></div><div class="cover" style="background:#780F38"><span>Марказ «К Исламу»</span><small>#780F38</small></div><div class="cover" style="background:#570B29"><span>Ключ счастья</span><small>#570B29</small></div><div class="cover" style="background:#3A071B"><span>Основы шариатских наук</span><small>#3A071B</small></div></div></div></div></label><label class="opt"><input type="radio" name="c" value="teal"><div><div class="theme"><span class="chip" style="background:#00897B">Курсы</span> <b>Бирюзовый</b> <small>#00897B · обложки близки к «Лекциям о посте» (Фикх)</small><div class="covers"><div class="cover" style="background:#006E62"><span>Даура</span><small>#006E62</small></div><div class="cover" style="background:#00554C"><span>Марказ «К Исламу»</span><small>#00554C</small></div><div class="cover" style="background:#003E37"><span>Ключ счастья</span><small>#003E37</small></div><div class="cover" style="background:#002925"><span>Основы шариатских наук</span><small>#002925</small></div></div></div></div></label><label class="opt"><input type="radio" name="c" value="bordo"><div><div class="theme"><span class="chip" style="background:#C62828">Курсы</span> <b>Бордовый</b> <small>#C62828 · тёмные обложки близки к «40 хадисам» (Хадис)</small><div class="covers"><div class="cover" style="background:#9E2020"><span>Даура</span><small>#9E2020</small></div><div class="cover" style="background:#7B1919"><span>Марказ «К Исламу»</span><small>#7B1919</small></div><div class="cover" style="background:#591212"><span>Ключ счастья</span><small>#591212</small></div><div class="cover" style="background:#3B0C0C"><span>Основы шариатских наук</span><small>#3B0C0C</small></div></div></div></div></label><label class="opt"><input type="radio" name="c" value="indigo"><div><div class="theme"><span class="chip" style="background:#3949AB">Курсы</span> <b>Индиго</b> <small>#3949AB · близок к синему Акыды</small><div class="covers"><div class="cover" style="background:#2E3A89"><span>Даура</span><small>#2E3A89</small></div><div class="cover" style="background:#232D6A"><span>Марказ «К Исламу»</span><small>#232D6A</small></div><div class="cover" style="background:#1A214D"><span>Ключ счастья</span><small>#1A214D</small></div><div class="cover" style="background:#111633"><span>Основы шариатских наук</span><small>#111633</small></div></div></div></div></label><label class="opt"><input type="radio" name="c" value="amber"><div><div class="theme"><span class="chip" style="background:#FF8F00">Курсы</span> <b>Янтарный</b> <small>#FF8F00 · близок к оранжевому, светлее</small><div class="covers"><div class="cover" style="background:#CC7200"><span>Даура</span><small>#CC7200</small></div><div class="cover" style="background:#9E5900"><span>Марказ «К Исламу»</span><small>#9E5900</small></div><div class="cover" style="background:#734000"><span>Ключ счастья</span><small>#734000</small></div><div class="cover" style="background:#4C2B00"><span>Основы шариатских наук</span><small>#4C2B00</small></div></div></div></div></label>
+<textarea id="note" rows="2" placeholder="пожелание (необязательно)"></textarea>
+<div class="bar"><button class="btn" id="send" type="button">Отправить мне</button>
+<button class="btn alt" id="copy" type="button">Скопировать ответ</button><span id="msg"></span></div>
+</section>
+<details class="now" open><summary>Нынешние темы приложения и обложки их книг</summary><div class="theme"><span class="chip" style="background:#1E88E5">Акыда</span><div class="covers"><div class="cover" style="background:#00072D"><span>Четыре правила</span><small>#00072D</small></div><div class="cover" style="background:#00377E"><span>Права Аллаха на Его рабов</span><small>#00377E</small></div><div class="cover" style="background:#1b063e"><span>Знакомство с Исламом</span><small>#1b063e</small></div><div class="cover" style="background:#5b2a86"><span>Детям об Исламе</span><small>#5b2a86</small></div></div></div><div class="theme"><span class="chip" style="background:#78909C">Манхадж</span><div class="covers"><div class="cover" style="background:#2E3440"><span>Шесть Основ</span><small>#2E3440</small></div><div class="cover" style="background:#324A5F"><span>Основы Сунны</span><small>#324A5F</small></div><div class="cover" style="background:#353535"><span>Аль-Джамаа и Секты</span><small>#353535</small></div><div class="cover" style="background:#200000"><span>40 хадисов Ан-Навави</span><small>#200000</small></div></div></div><div class="theme"><span class="chip" style="background:#43A047">Фикх</span><div class="covers"><div class="cover" style="background:#0a5e5b"><span>Справочник о посте</span><small>#0a5e5b</small></div><div class="cover" style="background:#0a5e5b"><span>Лекции о посте</span><small>#0a5e5b</small></div><div class="cover" style="background:#5b2a86"><span>Детям об Исламе</span><small>#5b2a86</small></div><div class="cover" style="background:#10002b"><span>Для начинающих</span><small>#10002b</small></div></div></div><div class="theme"><span class="chip" style="background:#6b443c">Хадис</span><div class="covers"><div class="cover" style="background:#200000"><span>40 хадисов Ан-Навави</span><small>#200000</small></div></div></div><div class="theme"><span class="chip" style="background:#8E24AA">Первые шаги</span><div class="covers"><div class="cover" style="background:#5b2a86"><span>Детям об Исламе</span><small>#5b2a86</small></div><div class="cover" style="background:#1b063e"><span>Знакомство с Исламом</span><small>#1b063e</small></div><div class="cover" style="background:#10002b"><span>Для начинающих</span><small>#10002b</small></div><div class="cover" style="background:#003249"><span>Важные уроки для всей уммы</span><small>#003249</small></div></div></div></details>
+<footer><a href="kursy.html">← к курсам</a></footer>
+</main>
+<script>
+const OPT = {"orange": {"name": "Оранжевый", "theme": "EF6C00", "books": {"kurs_daura": "BF5600", "kurs_markaz": "944300", "kurs_klyuch": "6C3100", "kurs_isa": "482000"}}, "raspberry": {"name": "Малиновый", "theme": "C2185B", "books": {"kurs_daura": "9B1349", "kurs_markaz": "780F38", "kurs_klyuch": "570B29", "kurs_isa": "3A071B"}}, "teal": {"name": "Бирюзовый", "theme": "00897B", "books": {"kurs_daura": "006E62", "kurs_markaz": "00554C", "kurs_klyuch": "003E37", "kurs_isa": "002925"}}, "bordo": {"name": "Бордовый", "theme": "C62828", "books": {"kurs_daura": "9E2020", "kurs_markaz": "7B1919", "kurs_klyuch": "591212", "kurs_isa": "3B0C0C"}}, "indigo": {"name": "Индиго", "theme": "3949AB", "books": {"kurs_daura": "2E3A89", "kurs_markaz": "232D6A", "kurs_klyuch": "1A214D", "kurs_isa": "111633"}}, "amber": {"name": "Янтарный", "theme": "FF8F00", "books": {"kurs_daura": "CC7200", "kurs_markaz": "9E5900", "kurs_klyuch": "734000", "kurs_isa": "4C2B00"}}}, REPO = "abumaliksoft/manhaj-catalog", KEY = "tsvet-kursov-v1";
+const radios = [...document.querySelectorAll('input[name=c]')], note = document.getElementById("note");
+try { const s = JSON.parse(localStorage.getItem(KEY) || "{}");
+  radios.forEach(r => r.checked = r.value === s.v); note.value = s.t || ""; } catch (e) {}
+function store() { const v = (radios.find(r => r.checked) || {}).value || "";
+  try { localStorage.setItem(KEY, JSON.stringify({v, t: note.value})); } catch (e) {} }
+radios.forEach(r => r.addEventListener("change", store)); note.addEventListener("input", store);
+function report() {
+  const r = radios.find(r => r.checked), t = note.value.trim();
+  if (!r && !t) return null;
+  const o = r ? OPT[r.value] : null;
+  const line = o ? [r.value, o.name, "тема #" + o.theme, Object.entries(o.books).map(([b, c]) => b + " #" + c).join(", ")].join(" | ") : "—";
+  return "Ответ со страницы «Цвет курсов» (tsvet-kursov-v1)\n\n```\n" + line + (t ? "\nnote | " + t : "") + "\n```\n";
+}
+const msg = document.getElementById("msg");
+document.getElementById("send").addEventListener("click", () => { const b = report();
+  if (!b) { msg.textContent = "Пока ничего не выбрано."; return; }
+  window.open("https://github.com/" + REPO + "/issues/new?labels=tsvet&title=" + encodeURIComponent("Цвет курсов: ответ " +
+    new Date().toLocaleDateString("ru-RU")) + "&body=" + encodeURIComponent(b), "_blank", "noopener");
+  msg.textContent = "Открыл заявку на GitHub — нажмите в ней «Create»."; });
+document.getElementById("copy").addEventListener("click", async () => { const b = report();
+  if (!b) { msg.textContent = "Пока ничего не выбрано."; return; }
+  try { await navigator.clipboard.writeText(b); msg.textContent = "Скопировано — вставьте в чат."; } catch (e) { msg.textContent = b; } });
+</script></body></html>
