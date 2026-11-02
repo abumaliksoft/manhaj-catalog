@@ -49,7 +49,18 @@ ol.tl{margin:.4rem 0 .6rem 1.1rem;padding:0;font-size:.84rem;color:var(--muted)}
 .chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:.3rem .7rem;
 border-radius:999px;font:inherit;font-size:.8rem;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--soft);border-color:var(--accent2);color:var(--accent)}
-</style></head><body><div class="wrap">
+</style><!--picks--><style>
+.pk{white-space:nowrap;margin-top:6px}.pk button,.tp button{font:inherit;font-size:12px;padding:3px 7px;margin:1px;border:1px solid #bbb;border-radius:6px;background:#fff;cursor:pointer}
+.pk button[aria-pressed=true]{color:#fff;border-color:transparent}.pk button.y[aria-pressed=true]{background:#2e7d32}
+.pk button.n[aria-pressed=true]{background:#9e2a2a}.pk button.l[aria-pressed=true]{background:#8a6d00}
+tr.picked td{background:rgba(46,125,50,.06)}.tp{margin:4px 0 8px}.tp span{font-size:13px;opacity:.75;margin-right:6px}
+#need{border:2px solid #c77d00;border-radius:10px;padding:10px 14px;margin:12px 0;background:rgba(199,125,0,.06)}
+#need h2{margin:0 0 6px;font-size:18px}#need p{margin:4px 0}
+#pbar{position:sticky;bottom:0;z-index:9;background:inherit;border-top:1px solid #ccc;padding:8px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+#pbar b{margin-right:auto;font-size:14px}#pbar button{font:inherit;padding:7px 12px;border-radius:8px;border:1px solid #888;cursor:pointer}
+#pbar .go{background:#2e7d32;color:#fff;border-color:#2e7d32}#pnote{width:100%;min-height:40px;font:inherit;margin-top:6px}
+@media(max-width:640px){.pk button{padding:6px 9px;font-size:13px}}
+</style><!--/picks--></head><body><div class="wrap">
 <h1>Новые сборники</h1><p class="lede">Сборники, которых в приложении пока нет, и весь найденный материал по ним. Порядок внутри раздела — учебный (как в источнике), дальше по длительности.</p>
 <div class="stats">
  <div class="stat"><b>10</b><span>сборника</span></div>
@@ -58,7 +69,12 @@ border-radius:999px;font:inherit;font-size:.8rem;cursor:pointer}
  <div class="stat"><b>0</b><span>текстов</span></div>
  <div class="stat"><b>0</b><span>страниц текста</span></div>
 </div>
-<div class="tabs"><button class="tab" data-t="0" aria-pressed="true">Науки о Коране · 13</button><button class="tab" data-t="1" aria-pressed="false">Сира · 13</button><button class="tab" data-t="2" aria-pressed="false">Торговля и работа · 15</button><button class="tab" data-t="3" aria-pressed="false">Еда · 17</button><button class="tab" data-t="4" aria-pressed="false">Азкары и дуа · 44</button><button class="tab" data-t="5" aria-pressed="false">Науки о хадисах · 23</button><button class="tab" data-t="6" aria-pressed="false">Арабский язык · 11</button><button class="tab" data-t="7" aria-pressed="false">Основы и правила фикха · 12</button><button class="tab" data-t="8" aria-pressed="false">Имена и качества Аллаха · 14</button><button class="tab" data-t="9" aria-pressed="false">Жизнеописания сподвижников и учёных · 7</button></div>
+<!--picks--><div id="need"><h2>Нужно от вас</h2>
+<p>Отметьте в строках: <b>Брать</b> — соберу в книгу приложения, <b>Не брать</b> — убираю из списка, <b>Позже</b> — оставляю на потом.
+Над каждой темой есть кнопки «вся тема». Выбор сохраняется на этом устройстве; когда закончите — <b>«Отправить мне»</b> внизу.</p>
+<p>Ссылки собраны в сентябре — перед сборкой всё выбранное я проверю заново (что открывается, что уже есть в курсах).</p>
+<textarea id="pnote" placeholder="Комментарий ко всему выбору (необязательно)"></textarea>
+<h3 class="sub">Найдено недавно</h3><div class="wrapscroll"><table id="extra"><thead><tr><th>#</th><th>что</th><th>чтец</th><th>источник</th><th>длительность</th><th>записей</th><th>ссылка</th></tr></thead><tbody><tr data-s="сахих муслим — книга о достоинствах абу яхья крымский" data-col="Сахих Муслим (abuyahya.net)"><td class="num">1</td><td class="name">Сахих Муслим — Книга о достоинствах<div class="desc">Продолжающийся разбор «Сахих Муслима»; отдельной книги в приложении пока нет.</div></td><td>Абу Яхья Крымский</td><td>abuyahya.net</td><td class="num"></td><td>4 новых аудио (26.10)</td><td><a href="https://abuyahya.net/lekcii/hadis-asar/sahih-muslim/kniga-o-dostoinstvah/" target="_blank" rel="noopener">открыть</a></td></tr><tr data-s="сахих муслим — книга о сновидениях абу яхья крымский" data-col="Сахих Муслим (abuyahya.net)"><td class="num">2</td><td class="name">Сахих Муслим — Книга о сновидениях<div class="desc">Продолжающийся разбор «Сахих Муслима»; отдельной книги в приложении пока нет.</div></td><td>Абу Яхья Крымский</td><td>abuyahya.net</td><td class="num"></td><td>3 новых аудио (20.10)</td><td><a href="https://abuyahya.net/lekcii/hadis-asar/sahih-muslim/kniga-o-snovideniyah-2/" target="_blank" rel="noopener">открыть</a></td></tr><tr data-s="сахих муслим — книга о стихах абу яхья крымский" data-col="Сахих Муслим (abuyahya.net)"><td class="num">3</td><td class="name">Сахих Муслим — Книга о стихах<div class="desc">Продолжающийся разбор «Сахих Муслима»; отдельной книги в приложении пока нет.</div></td><td>Абу Яхья Крымский</td><td>abuyahya.net</td><td class="num"></td><td>1 новых аудио (18.10)</td><td><a href="https://abuyahya.net/lekcii/hadis-asar/sahih-muslim/kniga-o-stihah/" target="_blank" rel="noopener">открыть</a></td></tr><tr data-s="сахих муслим — книга о благопристойности в речах и других выражениях абу яхья крымский" data-col="Сахих Муслим (abuyahya.net)"><td class="num">4</td><td class="name">Сахих Муслим — Книга о благопристойности в речах и других выражениях<div class="desc">Продолжающийся разбор «Сахих Муслима»; отдельной книги в приложении пока нет.</div></td><td>Абу Яхья Крымский</td><td>abuyahya.net</td><td class="num"></td><td>3 новых аудио (11.10)</td><td><a href="https://abuyahya.net/lekcii/hadis-asar/sahih-muslim/kniga-o-blagopristojnosti-v-rechah-i-drugih-vyrazheniyah/" target="_blank" rel="noopener">открыть</a></td></tr><tr data-s="сахих муслим — книга о медицине и чтении лечебных слов (рукъя) абу яхья крымский" data-col="Сахих Муслим (abuyahya.net)"><td class="num">5</td><td class="name">Сахих Муслим — Книга о медицине и чтении лечебных слов (рукъя)<div class="desc">Продолжающийся разбор «Сахих Муслима»; отдельной книги в приложении пока нет.</div></td><td>Абу Яхья Крымский</td><td>abuyahya.net</td><td class="num"></td><td>10 новых аудио (30.08)</td><td><a href="https://abuyahya.net/lekcii/hadis-asar/sahih-muslim/kniga-o-medicine-i-rukya/" target="_blank" rel="noopener">открыть</a></td></tr></tbody></table></div></div><!--/picks--><div class="tabs"><button class="tab" data-t="0" aria-pressed="true">Науки о Коране · 13</button><button class="tab" data-t="1" aria-pressed="false">Сира · 13</button><button class="tab" data-t="2" aria-pressed="false">Торговля и работа · 15</button><button class="tab" data-t="3" aria-pressed="false">Еда · 17</button><button class="tab" data-t="4" aria-pressed="false">Азкары и дуа · 44</button><button class="tab" data-t="5" aria-pressed="false">Науки о хадисах · 23</button><button class="tab" data-t="6" aria-pressed="false">Арабский язык · 11</button><button class="tab" data-t="7" aria-pressed="false">Основы и правила фикха · 12</button><button class="tab" data-t="8" aria-pressed="false">Имена и качества Аллаха · 14</button><button class="tab" data-t="9" aria-pressed="false">Жизнеописания сподвижников и учёных · 7</button></div>
 <input id="q" type="search" placeholder="поиск по названию, чтецу, источнику…">
 <section data-p="0"><h2 class="sub">Аудио <span class="cnt">· 7 циклов · 97 ч 23</span></h2><div class="wrapscroll"><table><thead><tr><th>#</th><th>книга / цикл</th><th>чтец</th><th>источник</th><th>длительность</th><th>лекции</th><th>ссылка</th></tr></thead><tbody><tr data-s="прекрасные правила толкования корана ринат абу мухаммад toislam.ws"><td class="num">1</td><td class="name">Прекрасные правила толкования Корана<div class="desc">Тема «Прекрасные правила толкования Корана» доступна на канале в Телеграм. 1. Вступление: «Та’ликат ‘аля аль-кауа’ид аль-хисан».  
 1 из 81 записей на источнике больше не открываются — в списке только рабочие.</div></td><td>Ринат абу Мухаммад</td><td>toislam.ws</td><td class="num">36 ч 36</td><td>80 лекц.</td><td><a href="https://toislam.ws/tafsir/prekrasnie_pravila_tolkovaniya_korana/" target="_blank" rel="noopener">открыть</a></td></tr><tr data-s="основы тафсира — матн и шарх шейха ’усаймина ринат абу мухаммад toislam.ws"><td class="num">2</td><td class="name">Основы тафсира — матн и шарх шейха ’Усаймина<div class="desc">Основы тафсира — наука о правилах толкования Благородного Корана. По милости Всевышнего Аллаха, нами полностью прочитана и разобрана книга «Шарх усуль фит-тафсир» шейха Мухаммада ибн Салих аль-’Усаймина, да помилует его Аллах, которая представляет собой матн и шарх, которые написал сам шейх. Данный курс аудио лекций является вводным пособием в науку «Усуль ат-тафсир», изучив которое, требующий знания вооружится основополагающими принципами и правилами одной из важнейших шариатских дисциплин, как «Тафсир» — толкование Священного Корана. Достоинство любой науки познается через достоинство того, что она изучает, объектом же изучения тафсира является Книга Аллаха — не сотворенное Слово нашего Господа. Усвоение этой книги станет прочным фундаментом для требующего знания в его дальнейшем изучении Священного Корана и других шариатских дисциплин. Это даст ему правильное понимание терминов, тех или иных постановлений, выводов и правил, откроет ему путь к пониманию слов ученых-муфассиров, к умению различать между правильными и неправильными трактовками смыслов аятов и т.п.  
@@ -110,4 +126,34 @@ tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.setAttribute('aria-pressed',x==
  secs.forEach(s=>s.hidden=s.dataset.p!==t.dataset.t);});
 document.getElementById('q').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase();
  document.querySelectorAll('tbody tr').forEach(tr=>{tr.hidden=q&&!(tr.dataset.s||'').includes(q);});});
-</script></body></html>
+</script><!--picks--><div id="pbar"><b id="pcnt"></b><button id="pcopy">Скопировать ответ</button>
+<button class="go" id="psend">Отправить мне</button></div>
+<script>(function(){
+var KEY="vybor-v1", LABEL="vybor", VER="v1", PAGE="novye-sborniki.html", st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var tabs=[].map.call(document.querySelectorAll('.tabs .tab'),function(b){return b.textContent.replace(/ · \d+$/,'')});
+var rows=[].slice.call(document.querySelectorAll('tr[data-s]'));
+function info(tr){var sec=tr.closest('section'),td=tr.children;var col=tr.getAttribute('data-col')||(sec&&tabs[+sec.getAttribute('data-p')])||'';
+ var a=tr.querySelector('a[href]');var name=td[1]?td[1].childNodes[0].textContent.trim():'';
+ return {col:col,title:name,reader:td.length>6?td[2].textContent.trim():'',url:a?a.href:'',id:col+'|'+name+'|'+(a?a.href:'')}}
+var LBL={y:'Брать',n:'Не брать',l:'Позже'};
+rows.forEach(function(tr){var i=info(tr);tr._i=i;var td=document.createElement('div');td.className='pk';
+ ['y','n','l'].forEach(function(k){var b=document.createElement('button');b.className=k;b.textContent=LBL[k];b.type='button';
+  b.onclick=function(){st[i.id]=(st[i.id]===k?undefined:k);if(!st[i.id])delete st[i.id];save();paint()};td.appendChild(b)});
+ (tr.children[1]||tr).appendChild(td)});
+[].forEach.call(document.querySelectorAll('section[data-p]'),function(sec){var d=document.createElement('div');d.className='tp';
+ d.innerHTML='<span>вся тема:</span>';['y','n','l'].forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=LBL[k];
+  b.onclick=function(){sec.querySelectorAll('tr[data-s]').forEach(function(tr){st[tr._i.id]=k});save();paint()};d.appendChild(b)});
+ sec.insertBefore(d,sec.firstChild)});
+function paint(){var n=0;rows.forEach(function(tr){var v=st[tr._i.id];if(v)n++;tr.classList.toggle('picked',v==='y');
+ [].forEach.call(tr.querySelectorAll('.pk button'),function(b){b.setAttribute('aria-pressed',b.className===v)})});
+ document.getElementById('pcnt').textContent='Отмечено '+n+' из '+rows.length}
+function answer(){var L=[];rows.forEach(function(tr){var v=st[tr._i.id];if(!v)return;var i=tr._i;
+ L.push([VER,i.col,i.title,i.reader,i.url,LBL[v]].map(function(x){return String(x).replace(/\s*\|\s*/g,' / ')}).join(' | '))});
+ var note=document.getElementById('pnote').value.trim();
+ return 'Выбор материала ('+PAGE+'), отмечено '+L.length+'\n```\n'+L.join('\n')+'\n```'+(note?'\n\nКомментарий: '+note:'')}
+document.getElementById('pcopy').onclick=function(){var t=answer();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){alert('Скопировано')},function(){prompt('Скопируйте:',t)})};
+document.getElementById('psend').onclick=function(){var t=answer();if(t.length>7000){alert('Ответ длинный — скопирую его, вставьте в заявку целиком.');document.getElementById('pcopy').onclick();}
+ window.open('https://github.com/abumaliksoft/manhaj-catalog/issues/new?labels='+LABEL+'&title='+encodeURIComponent('Выбор: '+PAGE)+'&body='+encodeURIComponent(t.length>7000?'(ответ вставлю сюда)':t),'_blank')};
+window.__picksAnswer=answer;paint()})();</script><!--/picks--></body></html>
