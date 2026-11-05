@@ -916,10 +916,82 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
 .v-h3 .desc.mut,.v-h4 .desc.mut{color:color-mix(in srgb,var(--fg) 50%,transparent)}
 .v-h3 .mr .ms,.v-h4 .mr .ms{color:var(--mut)}
 
+/* ================= ещё шесть способов (И5–И10) ================= */
+.v-h5 .nbi.on .nbic,.v-h6 .nbi.on .nbic,.v-h7 .nbi.on .nbic,.v-h8 .nbi.on .nbic,.v-h9 .nbi.on .nbic,
+.v-h5 .tab.on .tic,.v-h6 .tab.on .tic,.v-h7 .tab.on .tic,.v-h8 .tab.on .tic,.v-h9 .tab.on .tic{box-shadow:inset 0 0 0 1.5px var(--brand)}
+
+/* --- И5 · цвет книги как якорь --- */
+.v-h5 .hs .cc:first-child,.v-h5 .hero,.v-h5 .gh{background:color-mix(in srgb,var(--bc) 12%,var(--bg))}
+.th-dark.v-h5 .hs .cc:first-child,.th-dark.v-h5 .hero,.th-dark.v-h5 .gh{background:color-mix(in srgb,var(--bc) 26%,var(--bg))}
+.v-h5 .hs .cc:first-child .bm-stripe,.v-h5 .hero .bm-stripe,.v-h5 .gh .bm-stripe{width:16px}
+.v-h5 .hs .cc:first-child .t1{font-size:18px;font-weight:700}
+.v-h5 .hs .cc:first-child .pr i{background:var(--bc)}
+.v-h5 .ht{font-weight:700}
+.v-h5 .gh .t1{font-weight:700}
+
+/* --- И6 · крупные цифры --- */
+.v-h6 .cc-p{align-items:flex-end}
+.v-h6 .cc-p .t3{font-size:22px;font-weight:300;color:var(--fg);letter-spacing:-.5px}
+.v-h6 .chn{font-size:30px;font-weight:300;width:40px;color:var(--mut);letter-spacing:-1px}
+.v-h6 .chr.cur .chn{color:var(--accentText);font-weight:400}
+.v-h6 .chr .chn:empty{display:none}
+.v-h6 .pl-bar .t3{font-size:20px;font-weight:300;color:var(--fg)}
+.v-h6 .ar .t3{font-size:18px;font-weight:300;color:var(--fg)}
+.v-h6 .sh .n{font-size:20px;font-weight:300;color:var(--mut)}
+.v-h6 .cnt{font-size:20px;font-weight:300}
+
+/* --- И7 · разделы на полосах --- */
+.v-h7 .sh{margin:14px -16px 6px;padding:10px 16px;background:var(--field);font-size:15px;font-weight:700;letter-spacing:.02em}
+.v-h7 .sh.plain{margin-top:6px}
+.v-h7 .sh .n{font-weight:700}
+.v-h7 .s-book .sh{margin-top:12px}
+.v-h7 .gh{border:0;border-radius:0;margin:6px -16px 0;padding-right:16px;background:var(--field)}
+.v-h7 .gh .bm-stripe{width:6px}
+.v-h7 .gh .t1{font-weight:700}
+.v-h7 .tabs{background:var(--field);margin:0 0 10px;padding:6px 16px 8px}
+
+/* --- И8 · тёмный главный блок --- */
+.v-h8 .hs .cc:first-child,.v-h8 .pl,.v-h8 .chr.cur,.v-h8 .ar.cur,.v-h8 .mini{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.v-h8 .hs .cc:first-child .t2,.v-h8 .hs .cc:first-child .t3,.v-h8 .pl .t3,.v-h8 .pl-s,.v-h8 .chr.cur .t3,.v-h8 .ar.cur .t2,.v-h8 .ar.cur .t3,.v-h8 .mini .t3{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.v-h8 .hs .cc:first-child .t1{font-size:18px;font-weight:700}
+.v-h8 .hs .cc:first-child .pr,.v-h8 .pl .sl{background:color-mix(in srgb,var(--bg) 25%,transparent)}
+.v-h8 .play{background:var(--brand);color:#1b1205}
+.v-h8 .pl-t{font-weight:700}
+.v-h8 .chr.cur .rd{color:var(--brand)}
+.v-h8 .ar.cur .ar-i{color:var(--brand)}
+.v-h8 .fab{background:var(--fg);color:var(--bg)}
+.v-h8 .ring{background:var(--brand);color:#1b1205;box-shadow:none}
+
+/* --- И9 · значки-маркеры --- */
+.v-h9 .bm-ico{flex:none;align-self:flex-start;width:32px;height:32px;margin:12px 0 0 12px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--bc) 18%,var(--bg));color:var(--bc)}
+.th-dark.v-h9 .bm-ico{background:color-mix(in srgb,var(--bc) 35%,var(--bg));color:#fff}
+.v-h9 .bm-ico .ms{font-size:18px}
+.v-h9 .cc-b,.v-h9 .br-b{padding-left:10px}
+.v-h9 .kc{flex-wrap:wrap}
+.v-h9 .kc .bm-ico{margin:10px 0 0 10px;width:28px;height:28px}
+.v-h9 .kc .bm-ico .ms{font-size:16px}
+.v-h9 .kc-b{padding-left:8px}
+.v-h9 .hero .bm-ico{width:48px;height:48px;margin:16px 0 0 16px}
+.v-h9 .hero .bm-ico .ms{font-size:26px}
+.v-h9 .gh .bm-ico{align-self:center;margin:0 0 0 10px;width:26px;height:26px}
+.v-h9 .gh .bm-ico .ms{font-size:15px}
+.v-h9 .t1{font-weight:600}
+
+/* --- И10 · текущее — оранжевой чертой --- */
+.v-h10 .chr.cur,.v-h10 .ar.cur,.v-h10 .hs .cc:first-child{border-color:rgba(120,144,156,.6);box-shadow:inset 5px 0 0 var(--brand)}
+.v-h10 .hs .cc:first-child .bm-stripe{margin-left:5px}
+.v-h10 .chr.cur .t1,.v-h10 .ar.cur .t1,.v-h10 .hs .cc:first-child .t1{color:var(--accentText);font-weight:700}
+.v-h10 .chr.cur .chn{color:var(--accentText);font-weight:700}
+.v-h10 .nbi.on .nbic{box-shadow:inset 0 -3px 0 var(--brand);border-radius:0}
+.v-h10 .nbi.on{font-weight:700}
+.v-h10 .tab.on .tic{box-shadow:none}
+.v-h10 .tab.on{box-shadow:inset 0 -3px 0 var(--brand);font-weight:700}
+.v-h10 .pl{box-shadow:inset 5px 0 0 var(--brand)}
+
 .ctlbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--p-bg) 94%,transparent);backdrop-filter:blur(8px);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--p-line)}
 .ctlbar .lbl{font-size:13px;color:var(--p-mut)}
 .sys{background:var(--p-card);border:1px solid var(--p-line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
-.sys:has(input[name=pick]:checked){border-color:var(--p-brand);box-shadow:inset 4px 0 0 var(--p-brand)}
+.sys:has(input[name=pick]:checked),.sys:has(input[name=extra]:checked){border-color:var(--p-brand);box-shadow:inset 4px 0 0 var(--p-brand)}
 .sys-h{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
 .sys-h h2{font-size:22px}
 .code{font:600 14px/1 var(--p-mono);color:var(--p-acc);border:1.5px solid var(--p-brand);border-radius:6px;padding:4px 6px}
@@ -941,7 +1013,7 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
 <header style="display:flex;flex-direction:column;gap:12px">
   <span class="eyebrow">Pro Islam · дизайн-система · раунд 3 · 5 ноября 2026</span>
   <h1>Порядок важности на экранах</h1>
-  <p class="lead">Решили оставить нынешнюю систему: Material 3 со своими токенами, рамки, полоса цвета книги, оранжевый только у текущего и нажимаемого. Замечание дизайнера: на каждом экране должен быть порядок важности, а сейчас глазу не за что зацепиться. Всё одинаково по весу: одинаковые рамки, близкие размеры шрифта, равные отступы. Ниже четыре способа это исправить. Экраны, кнопки и содержание — те же, что сейчас.</p>
+  <p class="lead">Решили оставить нынешнюю систему: Material 3 со своими токенами, рамки, полоса цвета книги, оранжевый только у текущего и нажимаемого. Замечание дизайнера: на каждом экране должен быть порядок важности, а сейчас глазу не за что зацепиться. Всё одинаково по весу: одинаковые рамки, близкие размеры шрифта, равные отступы. Ниже десять способов это исправить: И1–И4 — основа (шрифт, главный элемент, тихий фон), И5–И10 — дополнительные акценты, их можно сочетать с И4. Экраны, кнопки и содержание — те же, что сейчас.</p>
   
 </header>
 
@@ -997,6 +1069,56 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
   <div class="sys-h"><span class="code">И4</span><h2>Всё вместе</h2><span class="pill acc">рекомендация разработки</span></div>
   <p>И1 + И2 + И3. Ступени шрифта задают порядок, один главный элемент даёт точку входа, приглушённый фон не спорит с ними. В дизайн-системе это три правила: шкала шрифта из четырёх ступеней, «один главный элемент на экран» и уровень приглушения для второго плана.</p>
   <div class="stage" data-v="h4"></div>
+  
+</section>
+
+<div class="grouph" style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">Ещё акценты</span><p class="muted small">Отмечайте галочками те, что добавить к выбранной основе (обычно И4). Где способ отходит от прежних решений, это написано.</p></div>
+
+<section class="sys" id="v-h5">
+  <div class="sys-h"><span class="code">И5</span><h2>Цвет книги как якорь</h2></div>
+  <p>У главного блока полоса шире, а фон — в лёгком оттенке цвета книги.</p>
+  <ul class="did"><li>Карточка «Продолжить», шапка страницы книги и заголовки групп в закладках — полоса 16 dp и оттенок книги</li><li>Прогресс в «Продолжить» — цветом книги</li><li><span class="muted">Возвращает «оттенок книги» 17.10, который убрали 19.10, но только у главного блока</span></li></ul>
+  <div class="stage" data-v="h5"></div>
+  
+</section>
+
+<section class="sys" id="v-h6">
+  <div class="sys-h"><span class="code">И6</span><h2>Крупные цифры</h2></div>
+  <p>Цифры — естественные якоря для глаза: номер главы, сколько прочитано, время.</p>
+  <ul class="did"><li>Номера глав в оглавлении крупно и тонко (30), текущий — оранжевым</li><li>«1 из 7» в «Продолжить», время в плеере и длительность аудио — крупными тонкими цифрами</li><li>Счётчики разделов и «2 из 51» в шапке главы — тоже</li></ul>
+  <div class="stage" data-v="h6"></div>
+  
+</section>
+
+<section class="sys" id="v-h7">
+  <div class="sys-h"><span class="code">И7</span><h2>Разделы на полосах</h2></div>
+  <p>Заголовок каждого раздела стоит на сплошной светлой полосе во всю ширину, и экран делится на понятные блоки.</p>
+  <ul class="did"><li>«Продолжить», «Курсы», «Книги», «Оглавление» — полосы</li><li>Группы закладок — полосы во всю ширину</li><li>Вкладки главы — на такой же полосе</li><li><span class="muted">Полоса — подложка, не линия, но близко к правилу «линий нет»</span></li></ul>
+  <div class="stage" data-v="h7"></div>
+  
+</section>
+
+<section class="sys" id="v-h8">
+  <div class="sys-h"><span class="code">И8</span><h2>Тёмный главный блок</h2></div>
+  <p>Главный элемент инвертирован: тёмный на светлом фоне, светлый на тёмном. Самый сильный контраст на экране.</p>
+  <ul class="did"><li>«Продолжить», плеер, текущая глава, играющее аудио, мини-плеер — тёмные</li><li>«Читать» — тёмная кнопка, ▶ — оранжевая</li><li><span class="muted">Заливка у главного вместо рамки — отход от «без заливок»</span></li></ul>
+  <div class="stage" data-v="h8"></div>
+  
+</section>
+
+<section class="sys" id="v-h9">
+  <div class="sys-h"><span class="code">И9</span><h2>Значки-маркеры</h2></div>
+  <p>У каждой карточки — значок вида (книга, курс) в кружке цвета книги рядом с полосой. Взгляд идёт по значкам вниз по списку.</p>
+  <ul class="did"><li>Обычные и компактные карточки, «Продолжить»</li><li>Шапка страницы книги и группы закладок</li><li>Названия чуть жирнее</li></ul>
+  <div class="stage" data-v="h9"></div>
+  
+</section>
+
+<section class="sys" id="v-h10">
+  <div class="sys-h"><span class="code">И10</span><h2>Текущее — оранжевой чертой</h2></div>
+  <p>Всё «текущее» отмечено одинаково: толстой оранжевой чертой слева и оранжевым названием.</p>
+  <ul class="did"><li>Текущая глава, играющее аудио, «Продолжить», плеер</li><li>Выбранная вкладка и пункт навигации — оранжевое подчёркивание вместо овала</li><li>Остальное — как сейчас</li></ul>
+  <div class="stage" data-v="h10"></div>
   
 </section>
 
@@ -1276,6 +1398,60 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
         sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
         dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
       }
+    },
+    {
+      id: 'h5', code: 'И5', name: 'Цвет книги как якорь', short: 'Широкая полоса и лёгкий оттенок цвета книги у главного: «Продолжить», шапка книги, группы закладок',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
+    },
+    {
+      id: 'h6', code: 'И6', name: 'Крупные цифры', short: 'Номера глав, «1 из 7», время аудио — крупными цифрами, за них цепляется взгляд',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
+    },
+    {
+      id: 'h7', code: 'И7', name: 'Разделы на полосах', short: 'Заголовки разделов — на сплошной светлой полосе во всю ширину, экран делится на понятные блоки',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
+    },
+    {
+      id: 'h8', code: 'И8', name: 'Тёмный главный блок', short: 'Главный элемент инвертирован: «Продолжить», плеер, текущая глава и «Читать» — тёмные на светлом',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
+    },
+    {
+      id: 'h9', code: 'И9', name: 'Значки-маркеры', short: 'У каждой карточки значок вида книги в кружке её цвета, у шапки книги и групп закладок тоже',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
+    },
+    {
+      id: 'h10', code: 'И10', name: 'Текущее — оранжевой чертой', short: 'Текущее отмечено жирной оранжевой чертой слева и оранжевым названием, остальное спокойно',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
     }
   ];
   const COVER = ['kindle', 'books', 'audio', 'bookmate'];
@@ -1284,7 +1460,7 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
     '40_hadis': ['Хадис', 'Акыда', 'Манхадж', 'Фикх'], kitab_tauhid: ['Акыда'], durus: ['Акыда', 'Фикх'], usul_sunna: ['Акыда', 'Манхадж'], kawaid: ['Акыда'], manhaj: ['Манхадж'] };
   const TOPIC_C = { 'Акыда': bookColour('0xff1986E3'), 'Фикх': bookColour('0xff38963E'), 'Манхадж': bookColour('0xff417180'), 'Хадис': bookColour('0xff875E55') };
   // Варианты, где содержание и кнопки экранов — как в приложении сейчас.
-  const AS_APP = ['m3own', 'e1', 'e2', 'e3', 'h1', 'h2', 'h3', 'h4'];
+  const AS_APP = ['m3own', 'e1', 'e2', 'e3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10'];
   const VBY = Object.fromEntries(VARIANTS.map(v => [v.id, v]));
 
   function vars(v, themeKey) {
@@ -1330,6 +1506,7 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
   // книга в списке — у каждой системы своя подача цвета книги
   function bookMark(v, b, size) {
     // Раунд 2: книга — значок её вида в её цвете (не обложка и не полоса).
+    if (v.id === 'h9') return `<span class="bm-stripe" style="--bc:${b.c}"></span><span class="bm-ico" style="--bc:${b.c}">${I(b.kind || 'menu_book', 'fill')}</span>`;
     if (['e1', 'e2', 'e3'].includes(v.id)) return `<span class="bm-icon" style="--bc:${b.c}">${I(b.kind || 'menu_book', 'fill')}</span>`;
     if (v.id === 'm3e') return `<span class="bm-shape" style="--bc:${b.c}">${I(b.kind || 'menu_book', 'fill')}</span>`;
     if (v.id === 'hig') return `<span class="bm-sq" style="--bc:${b.c}">${I(b.kind || 'menu_book', 'fill')}</span>`;
