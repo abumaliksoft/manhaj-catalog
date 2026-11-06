@@ -1038,7 +1038,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 
 /* М9/М10 (06.11): тип — первой меткой среди тем, тем же овалом, цветом книги */
 .dev .ty-tag{color:color-mix(in srgb,var(--tc) 85%,var(--fg));font-weight:600}
-.dev .tag.ty-line{background:transparent;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tc) 70%,transparent)}
+.dev .tag.ty-line{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
 
 .ctlbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--p-bg) 94%,transparent);backdrop-filter:blur(8px);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--p-line)}
 .ctlbar .lbl{font-size:13px;color:var(--p-mut)}
@@ -1065,7 +1065,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 <header style="display:flex;flex-direction:column;gap:12px">
   <span class="eyebrow">Pro Islam · дизайн-система · раунд 6 · 6 ноября 2026</span>
   <h1>Карточка книги: как К1, но органичнее</h1>
-  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже одиннадцать вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием, те же два с типом первой меткой среди тем и такая метка контуром, без заливки. В блоке «Продолжить» тип словом не пишется ни в одном варианте, там остаётся только значок (решение владельца 06.11). Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
+  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже одиннадцать вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием, те же два с типом первой меткой среди тем и такая метка с полосой — контуром, без заливки, обычным цветом. В блоке «Продолжить» тип словом не пишется ни в одном варианте, там остаётся только значок (решение владельца 06.11). Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
   
 </header>
 
@@ -1175,9 +1175,9 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 </section>
 
 <section class="sys" id="v-m11">
-  <div class="sys-h"><span class="code">М11</span><h2>Тип меткой-контуром</h2></div>
-  <p>Как М9, но овал с типом без заливки: только тонкий контур и слово цветом книги. Темы остаются залитыми, поэтому тип отличается от них, хотя стоит в том же ряду.</p>
-  <ul class="did"><li>Тип и темы различаются видом метки, а не только цветом</li><li>Карточка спокойнее: одной цветной заливкой меньше</li></ul>
+  <div class="sys-h"><span class="code">М11</span><h2>Полоса со значком, тип меткой-контуром</h2></div>
+  <p>Как М10: цветная полоса слева со значком. Тип — первой меткой в ряду тем, но овал без заливки: тонкий серый контур, слово обычным цветом текста. Темы остаются залитыми.</p>
+  <ul class="did"><li>Цвет книги — только в полосе, тип — нейтральной меткой</li><li>Тип и темы различаются видом метки</li></ul>
   <div class="stage" data-v="m11"></div>
   
 </section>
@@ -1720,7 +1720,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
       }
     },
     {
-      id: 'm11', code: 'М11', name: 'Тип меткой-контуром', short: 'Значок без фона слева по центру; тип — первой меткой среди тем, овал контуром без заливки',
+      id: 'm11', code: 'М11', name: 'Полоса со значком, тип меткой-контуром', short: 'Цветная полоса слева со значком; тип — первой меткой среди тем, овал контуром, слово обычным цветом',
       font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
       themes: {
         light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
@@ -1758,7 +1758,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
       const tag = `<span class="tag ty-tag${v.id === 'm11' ? ' ty-line' : ''}" style="--tc:${b.c}">${name}</span>`, at = rest.lastIndexOf('<div class="chips">');
       const r2 = !name ? rest : rest.includes('<div class="tags">') ? rest.replace('<div class="tags">', `<div class="tags">${tag}`)
         : at >= 0 ? rest.slice(0, at) + `<div class="chips">${tag}` + rest.slice(at + 19) : `<div class="tags">${tag}</div>${rest}`;
-      const lead = v.id !== 'm10' ? `<span class="m-plain">${ico}</span>` : `<span class="m-band m-band-ico">${ico}</span>`;
+      const lead = v.id === 'm9' ? `<span class="m-plain">${ico}</span>` : `<span class="m-band m-band-ico">${ico}</span>`;
       return box(`${lead}<div class="m-b">${T}${meta}${r2}</div>`);
     }
     if (v.id === 'm6') return box(`<span class="m-band m-band-up">${ico}${name ? `<span class="m-up">${name}</span>` : ''}</span><div class="m-b">${T}${meta}${rest}</div>`);
