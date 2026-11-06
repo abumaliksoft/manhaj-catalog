@@ -1024,6 +1024,18 @@ html[data-ci="d"] .dev .cic b{display:inline;font-size:12px}
 .dev .m-plain+.m-b,.dev .m-band-ico+.m-b{padding-left:12px}
 .dev .hero .ty-over{font-size:12px}
 
+/* ===== значок в кружке или без (переключатель страницы html[data-ico]: auto | ring | plain) ===== */
+/* в кружке: на цветной полосе — светлый круг, на белом — круг в оттенке книги */
+html[data-ico="ring"] .dev :is(.m-band,.m-spine)>.ms{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.24);font-size:20px}
+html[data-ico="ring"] .dev .m-spine>.ms{width:24px;height:24px;font-size:14px;background:color-mix(in srgb,var(--bc) 22%,var(--bg))}
+html[data-ico="ring"] .dev .m-plain>.ms{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-size:20px;background:color-mix(in srgb,var(--bc) 18%,var(--bg))}
+html[data-ico="ring"] .dev .ty-cap>.ms{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;font-size:12px;background:color-mix(in srgb,var(--bc) 30%,var(--bg))}
+html[data-ico="ring"] .dev .hero :is(.m-band,.m-plain)>.ms{width:44px;height:44px;font-size:26px}
+/* без кружка: снять круг у М3 и М4 (и у значков групп в закладках) */
+html[data-ico="plain"] .dev :is(.ty-dot,.bm-ico){background:transparent!important;width:auto;height:auto}
+html[data-ico="plain"] .v-m3 .bm-ico .ms{font-size:24px}
+html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
+
 .ctlbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--p-bg) 94%,transparent);backdrop-filter:blur(8px);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--p-line)}
 .ctlbar .lbl{font-size:13px;color:var(--p-mut)}
 .sys{background:var(--p-card);border:1px solid var(--p-line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
@@ -1049,7 +1061,7 @@ html[data-ci="d"] .dev .cic b{display:inline;font-size:12px}
 <header style="display:flex;flex-direction:column;gap:12px">
   <span class="eyebrow">Pro Islam · дизайн-система · раунд 6 · 6 ноября 2026</span>
   <h1>Карточка книги: как К1, но органичнее</h1>
-  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже восемь вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием. Отдельно можно выбрать, как показывать значки содержания (Матн · Текст · Аудио) — переключатель в панели сверху меняет их во всех вариантах сразу.</p>
+  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже восемь вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием. Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
   
 </header>
 
@@ -1063,7 +1075,7 @@ html[data-ci="d"] .dev .cic b{display:inline;font-size:12px}
   </div>
 </section>
 
-<div class="ctlbar"><span class="lbl">Показать:</span><div class="segb" data-seg="theme" role="group" aria-label="Тема"></div><div class="segb" data-seg="device" role="group" aria-label="Устройство"></div><span class="lbl">Значки содержания:</span><div class="segb" id="ciseg" role="group" aria-label="Значки содержания"></div></div>
+<div class="ctlbar"><span class="lbl">Показать:</span><div class="segb" data-seg="theme" role="group" aria-label="Тема"></div><div class="segb" data-seg="device" role="group" aria-label="Устройство"></div><span class="lbl">Значки содержания:</span><div class="segb" id="ciseg" role="group" aria-label="Значки содержания"></div><span class="lbl">Значок вида:</span><div class="segb" id="icoseg" role="group" aria-label="Значок вида"></div></div>
 
 <form id="answers" onsubmit="return false" style="display:flex;flex-direction:column;gap:28px">
 
@@ -1166,6 +1178,23 @@ html[data-ci="d"] .dev .cic b{display:inline;font-size:12px}
   });
   document.documentElement.setAttribute('data-ci', cur);
   window.setCiMode = set;
+})();
+(function () {
+  var MODES = [['auto', 'как задумано'], ['ring', 'в кружке'], ['plain', 'без кружка']];
+  var cur = 'auto';
+  try { cur = localStorage.getItem('ds6-ico') || 'auto'; } catch (e) { /* без памяти */ }
+  function set(m) {
+    cur = m; document.documentElement.setAttribute('data-ico', m);
+    try { localStorage.setItem('ds6-ico', m); } catch (e) { /* без памяти */ }
+    var box = document.getElementById('icoseg');
+    if (box) box.innerHTML = MODES.map(function (x) { return '<button type="button" data-v="' + x[0] + '" aria-pressed="' + (x[0] === cur) + '">' + x[1] + '</button>'; }).join('');
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    set(cur);
+    document.getElementById('icoseg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) set(b.dataset.v); });
+  });
+  document.documentElement.setAttribute('data-ico', cur);
+  window.setIcoMode = set;
 })();
 </script>
 <script>
