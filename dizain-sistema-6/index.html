@@ -916,14 +916,14 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
 
 /* ===== раунд 6: варианты К1 «органичнее» (М1–М5), без компактного вида =====
    Основа: нынешняя система, разделы на полосах, серая рамка, без полосы-стрипа. */
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .nbi.on .nbic,:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .tab.on .tic{box-shadow:inset 0 0 0 1.5px var(--brand)}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .sh{margin:14px -16px 6px;padding:10px 16px;background:var(--field);font-size:15px;font-weight:700;letter-spacing:.02em}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .sh.plain{margin-top:6px}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .sh .n{font-weight:700}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .gh{border:0;border-radius:0;margin:6px -16px 0;padding:0 16px 0 14px;background:var(--field);min-height:48px;gap:10px}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .gh .t1{font-weight:700}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .tabs{background:var(--field);margin:0 0 10px;padding:6px 16px 8px}
-:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8) .t1{font-weight:600}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .nbi.on .nbic,:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .tab.on .tic{box-shadow:inset 0 0 0 1.5px var(--brand)}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .sh{margin:14px -16px 6px;padding:10px 16px;background:var(--field);font-size:15px;font-weight:700;letter-spacing:.02em}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .sh.plain{margin-top:6px}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .sh .n{font-weight:700}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .gh{border:0;border-radius:0;margin:6px -16px 0;padding:0 16px 0 14px;background:var(--field);min-height:48px;gap:10px}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .gh .t1{font-weight:700}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .tabs{background:var(--field);margin:0 0 10px;padding:6px 16px 8px}
+:is(.v-m1,.v-m2,.v-m3,.v-m4,.v-m5,.v-m6,.v-m7,.v-m8,.v-m9,.v-m10) .t1{font-weight:600}
 .dev .m-card{align-items:stretch}
 .dev .m-b{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding:10px 14px 12px}
 .dev .cc.m-card .m-b{gap:5px}
@@ -1036,6 +1036,9 @@ html[data-ico="plain"] .dev :is(.ty-dot,.bm-ico){background:transparent!importan
 html[data-ico="plain"] .v-m3 .bm-ico .ms{font-size:24px}
 html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 
+/* М9/М10 (06.11): тип — первой меткой среди тем, тем же овалом, цветом книги */
+.dev .ty-tag{color:color-mix(in srgb,var(--tc) 85%,var(--fg));font-weight:600}
+
 .ctlbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--p-bg) 94%,transparent);backdrop-filter:blur(8px);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--p-line)}
 .ctlbar .lbl{font-size:13px;color:var(--p-mut)}
 .sys{background:var(--p-card);border:1px solid var(--p-line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
@@ -1061,7 +1064,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 <header style="display:flex;flex-direction:column;gap:12px">
   <span class="eyebrow">Pro Islam · дизайн-система · раунд 6 · 6 ноября 2026</span>
   <h1>Карточка книги: как К1, но органичнее</h1>
-  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже восемь вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием. Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
+  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже десять вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием, и те же два с типом первой меткой среди тем. Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
   
 </header>
 
@@ -1151,6 +1154,22 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
   <p>Цветная полоса слева в цвете книги, в ней по центру белый значок. Тип — словом прописными над названием, без значка.</p>
   <ul class="did"><li>Полоса 48 dp, в ней только значок, без надписи</li><li>Тип над названием, как в М7</li></ul>
   <div class="stage" data-v="m8"></div>
+  
+</section>
+
+<section class="sys" id="v-m9">
+  <div class="sys-h"><span class="code">М9</span><h2>Значок слева, тип первой меткой</h2></div>
+  <p>Как М7: значок без фона слева по центру. Тип не над названием, а первой меткой в ряду тем, тем же овалом, цветом книги: «Курс · Акыда · Фикх». В карточке «Продолжить», где тем нет, метка стоит отдельной строкой.</p>
+  <ul class="did"><li>Название — первая строка карточки, над ним ничего</li><li>Новой строки не нужно: ряд меток уже есть</li></ul>
+  <div class="stage" data-v="m9"></div>
+  
+</section>
+
+<section class="sys" id="v-m10">
+  <div class="sys-h"><span class="code">М10</span><h2>Полоса со значком, тип первой меткой</h2></div>
+  <p>Как М8: цветная полоса слева со значком. Тип — первой меткой в ряду тем, тем же овалом, цветом книги.</p>
+  <ul class="did"><li>Цвет книги — полосой, тип — меткой рядом с темами</li><li>Название — первая строка карточки</li></ul>
+  <div class="stage" data-v="m10"></div>
   
 </section>
 
@@ -1672,6 +1691,24 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
         sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
         dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
       }
+    },
+    {
+      id: 'm9', code: 'М9', name: 'Значок слева, тип первой меткой', short: 'Значок без фона слева по центру; тип — первой меткой в ряду тем',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
+    },
+    {
+      id: 'm10', code: 'М10', name: 'Полоса со значком, тип первой меткой', short: 'Цветная полоса слева со значком; тип — первой меткой в ряду тем',
+      font: "'Roboto', system-ui, sans-serif", title: "'Roboto', system-ui, sans-serif", ar: "'Scheherazade New', 'Amiri', serif", icons: 'Outlined',
+      themes: {
+        light: T('#FAFAFF', '#171717', { surface: 'transparent', field: '#EDEDF2', line: rgba('#78909C', 0.6) }),
+        sepia: T('#F5EED6', '#171717', { surface: 'transparent', field: '#E8E1C9', line: rgba('#78909C', 0.6) }),
+        dark: T('#171717', '#FAFAFF', { surface: 'transparent', field: '#2A2A2C', line: rgba('#78909C', 0.6) })
+      }
     }
   ];
   const COVER = ['kindle', 'books', 'audio', 'bookmate'];
@@ -1680,14 +1717,14 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
     '40_hadis': ['Хадис', 'Акыда', 'Манхадж', 'Фикх'], kitab_tauhid: ['Акыда'], durus: ['Акыда', 'Фикх'], usul_sunna: ['Акыда', 'Манхадж'], kawaid: ['Акыда'], manhaj: ['Манхадж'] };
   const TOPIC_C = { 'Акыда': bookColour('0xff1986E3'), 'Фикх': bookColour('0xff38963E'), 'Манхадж': bookColour('0xff417180'), 'Хадис': bookColour('0xff875E55') };
   // Варианты, где содержание и кнопки экранов — как в приложении сейчас.
-  const AS_APP = ['m3own', 'e1', 'e2', 'e3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'k0', 'k1', 'k2', 'k3', 'k4', 'l1', 'l2', 'l3', 'l4', 'm1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8'];
+  const AS_APP = ['m3own', 'e1', 'e2', 'e3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'k0', 'k1', 'k2', 'k3', 'k4', 'l1', 'l2', 'l3', 'l4', 'm1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10'];
   // Раунд 4: тип книги показывает значок, поэтому без полосы и без «Курс/Книга» в строке.
   const NOTYPE = ['k1', 'k2', 'k3', 'k4'];
   const KIND = b => b.id === 'manhaj' ? 'library_books' : (b.id || '').startsWith('kurs_') ? 'school' : (b.kind || 'menu_book');
   const KIND_NAME = b => ({ library_books: 'Сборник', school: 'Курс', menu_book: 'Книга' })[KIND(b)];
   const numbers = b => b.meta.split(' · ').filter(x => /глав|лекци/.test(x)).join(' · ');
   // Раунд 6 (06.11): К1 органичнее — значок и тип слиты с карточкой; значки содержания с числами (вид — переключателем страницы).
-  const MTYPE = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8'];
+  const MTYPE = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10'];
   const contentIcons = b => { const n = (b.meta.match(/(\d+) лекци/) || [])[1]; return `<div class="ci">${[['format_quote', 'Матн', ''], ['article', 'Текст', ''], ['headphones', 'Аудио', n || '']].map(([ic, l, k]) => `<span class="cic">${I(ic, 'sm')}<em>${l}</em>${k ? `<b>${k}</b>` : ''}</span>`).join('')}</div>`; };
   function mcard(v, b, o) {
     const ico = I(KIND(b), 'fill'), name = KIND_NAME(b);
@@ -1696,6 +1733,14 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
     if (v.id === 'm1') return box(`<div class="m-b"><span class="ty-cap">${ico}${name}</span>${T}${meta}${rest}</div>`);
     if (v.id === 'm7') return box(`<span class="m-plain">${ico}</span><div class="m-b"><span class="ty-over">${name}</span>${T}${meta}${rest}</div>`);
     if (v.id === 'm8') return box(`<span class="m-band m-band-ico">${ico}</span><div class="m-b"><span class="ty-over">${name}</span>${T}${meta}${rest}</div>`);
+    if (v.id === 'm9' || v.id === 'm10') {
+      // Тип — первой меткой среди тем, тем же овалом; без тем — своей строкой.
+      const tag = `<span class="tag ty-tag" style="--tc:${b.c}">${name}</span>`, at = rest.lastIndexOf('<div class="chips">');
+      const r2 = rest.includes('<div class="tags">') ? rest.replace('<div class="tags">', `<div class="tags">${tag}`)
+        : at >= 0 ? rest.slice(0, at) + `<div class="chips">${tag}` + rest.slice(at + 19) : `<div class="tags">${tag}</div>${rest}`;
+      const lead = v.id === 'm9' ? `<span class="m-plain">${ico}</span>` : `<span class="m-band m-band-ico">${ico}</span>`;
+      return box(`${lead}<div class="m-b">${T}${meta}${r2}</div>`);
+    }
     if (v.id === 'm6') return box(`<span class="m-band m-band-up">${ico}<span class="m-up">${name}</span></span><div class="m-b">${T}${meta}${rest}</div>`);
     if (v.id === 'm2') return box(`<span class="m-band">${ico}<span>${name}</span></span><div class="m-b">${T}${meta}${rest}</div>`);
     if (v.id === 'm3') return box(`<div class="m-top"><span class="bm-col"><span class="bm-ico">${ico}</span><span class="bm-lbl">${name}</span></span><div class="m-tt">${T}${meta}</div></div>${rest ? `<div class="m-bot">${rest}</div>` : ''}`, 'm-col');
