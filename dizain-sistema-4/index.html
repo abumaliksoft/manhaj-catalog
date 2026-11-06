@@ -900,6 +900,20 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
 .v-k1 .kc-b,.v-k2 .kc-b,.v-k3 .kc-b,.v-k4 .kc-b{justify-content:flex-start;gap:4px}
 .v-k1 .kc,.v-k2 .kc,.v-k3 .kc,.v-k4 .kc{min-height:0}
 
+/* --- К1 (выбор 06.11): тип словом под значком --- */
+.v-k1 .bm-col{flex:none;align-self:flex-start;display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;margin:10px 0 10px 6px}
+.v-k1 .bm-col .bm-ico{margin:0}
+.v-k1 .bm-lbl{font-size:10px;line-height:1.1;font-weight:500;color:var(--mut);letter-spacing:.02em}
+.v-k1 .cc-b,.v-k1 .br-b{padding-left:6px}
+.v-k1 .kc .bm-col{margin:10px 0 0 6px}
+.v-k1 .kc .bm-ico{margin:0}
+.v-k1 .hero .bm-col{width:64px;margin:16px 0 0 12px}
+.v-k1 .hero .bm-ico{margin:0}
+.v-k1 .hero .bm-lbl{font-size:11px}
+.v-k1 .gh .bm-col{align-self:center;width:auto;margin:0 0 0 14px}
+.v-k1 .gh .bm-lbl{display:none}
+.v-k1 .bm-lbl{font-size:11px;font-weight:600;color:color-mix(in srgb,var(--fg) 72%,transparent)}
+
 .ctlbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--p-bg) 94%,transparent);backdrop-filter:blur(8px);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--p-line)}
 .ctlbar .lbl{font-size:13px;color:var(--p-mut)}
 .sys{background:var(--p-card);border:1px solid var(--p-line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
@@ -962,8 +976,8 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
 
 <section class="sys" id="v-k1">
   <div class="sys-h"><span class="code">К1</span><h2>Значок в кружке</h2><span class="pill acc">рекомендация разработки</span></div>
-  <p>Самый близкий к понравившемуся вариант. Полосы нет, значок вида — в светлом кружке цвета книги, рамка карточки как сейчас. Под названием — главы и лекции.</p>
-  <ul class="did"><li>Цвет книги остаётся заметным, но не кричит: кружок светлый, знак цветной</li><li>Рамка карточки не меняется: правило «строки содержимого в серой рамке» сохраняется</li><li>У компактных карточек значок над названием</li></ul>
+  <p>Выбран 06.11. Полосы нет, значок вида — в светлом кружке цвета книги, под значком тип словом («Курс», «Книга», «Сборник»), рамка карточки как сейчас. Под названием — главы и лекции.</p>
+  <ul class="did"><li>Цвет книги остаётся заметным, но не кричит: кружок светлый, знак цветной</li><li>Рамка карточки не меняется: правило «строки содержимого в серой рамке» сохраняется</li><li>Тип написан словом под значком, поэтому его можно прочесть, а не только узнать по значку</li><li>У компактных карточек значок с подписью над названием; в полосах закладок — только значок</li></ul>
   <div class="stage" data-v="k1"></div>
   
 </section>
@@ -1378,7 +1392,8 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
   const AS_APP = ['m3own', 'e1', 'e2', 'e3', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'k0', 'k1', 'k2', 'k3', 'k4'];
   // Раунд 4: тип книги показывает значок, поэтому без полосы и без «Курс/Книга» в строке.
   const NOTYPE = ['k1', 'k2', 'k3', 'k4'];
-  const KIND = b => b.id === 'manhaj' ? 'library_books' : (b.kind || 'menu_book');
+  const KIND = b => b.id === 'manhaj' ? 'library_books' : (b.id || '').startsWith('kurs_') ? 'school' : (b.kind || 'menu_book');
+  const KIND_NAME = b => ({ library_books: 'Сборник', school: 'Курс', menu_book: 'Книга' })[KIND(b)];
   const numbers = b => b.meta.split(' · ').filter(x => /глав|лекци/.test(x)).join(' · ');
   const VBY = Object.fromEntries(VARIANTS.map(v => [v.id, v]));
 
@@ -1425,6 +1440,8 @@ nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
   // книга в списке — у каждой системы своя подача цвета книги
   function bookMark(v, b, size) {
     // Раунд 2: книга — значок её вида в её цвете (не обложка и не полоса).
+    // К1 (выбор владельца 06.11): под значком — тип словом.
+    if (v.id === 'k1') return `<span class="bm-col"><span class="bm-ico" style="--bc:${b.c}">${I(KIND(b), 'fill')}</span><span class="bm-lbl">${KIND_NAME(b)}</span></span>`;
     if (NOTYPE.includes(v.id)) return `<span class="bm-ico" style="--bc:${b.c}">${I(KIND(b), 'fill')}</span>`;
     if (v.id === 'k0') return `<span class="bm-stripe" style="--bc:${b.c}"></span><span class="bm-ico" style="--bc:${b.c}">${I(KIND(b), 'fill')}</span>`;
     if (v.id === 'h9') return `<span class="bm-stripe" style="--bc:${b.c}"></span><span class="bm-ico" style="--bc:${b.c}">${I(b.kind || 'menu_book', 'fill')}</span>`;
