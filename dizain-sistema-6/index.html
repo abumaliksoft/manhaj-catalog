@@ -1064,7 +1064,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 <header style="display:flex;flex-direction:column;gap:12px">
   <span class="eyebrow">Pro Islam · дизайн-система · раунд 6 · 6 ноября 2026</span>
   <h1>Карточка книги: как К1, но органичнее</h1>
-  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже десять вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием, и те же два с типом первой меткой среди тем. Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
+  <p class="lead">Компактного вида больше нет, только обычные карточки. В К1 значок с типом стоит отдельной колонкой, и весь текст сдвинут вправо. Ниже десять вариантов, где значок и тип слиты с карточкой или с текстом: плашка, широкая полоса (тип словом или по буквам), обтекание, строка-шапка, корешок, значок слева по центру и значок в цветной полосе с типом над названием, и те же два с типом первой меткой среди тем. В блоке «Продолжить» тип словом не пишется ни в одном варианте, там остаётся только значок (решение владельца 06.11). Отдельно можно выбрать, показывать ли значок вида в кружке или без него, и как показывать значки содержания (Матн · Текст · Аудио): переключатели в панели сверху меняют это во всех вариантах сразу.</p>
   
 </header>
 
@@ -1159,7 +1159,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 
 <section class="sys" id="v-m9">
   <div class="sys-h"><span class="code">М9</span><h2>Значок слева, тип первой меткой</h2></div>
-  <p>Как М7: значок без фона слева по центру. Тип не над названием, а первой меткой в ряду тем, тем же овалом, цветом книги: «Курс · Акыда · Фикх». В карточке «Продолжить», где тем нет, метка стоит отдельной строкой.</p>
+  <p>Как М7: значок без фона слева по центру. Тип не над названием, а первой меткой в ряду тем, тем же овалом, цветом книги: «Курс · Акыда · Фикх».</p>
   <ul class="did"><li>Название — первая строка карточки, над ним ничего</li><li>Новой строки не нужно: ряд меток уже есть</li></ul>
   <div class="stage" data-v="m9"></div>
   
@@ -1727,25 +1727,27 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
   const MTYPE = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10'];
   const contentIcons = b => { const n = (b.meta.match(/(\d+) лекци/) || [])[1]; return `<div class="ci">${[['format_quote', 'Матн', ''], ['article', 'Текст', ''], ['headphones', 'Аудио', n || '']].map(([ic, l, k]) => `<span class="cic">${I(ic, 'sm')}<em>${l}</em>${k ? `<b>${k}</b>` : ''}</span>`).join('')}</div>`; };
   function mcard(v, b, o) {
-    const ico = I(KIND(b), 'fill'), name = KIND_NAME(b);
+    // В «Продолжить» тип словом не пишется (владелец 06.11), остаётся только значок.
+    const ico = I(KIND(b), 'fill'), name = o.cls === 'cc' ? '' : KIND_NAME(b);
+    const over = name ? `<span class="ty-over">${name}</span>` : '';
     const T = `<div class="${o.tcls || 't1'}">${o.title}</div>`, meta = o.meta ? `<div class="t3">${o.meta}</div>` : '', rest = o.rest || '';
     const box = (inner, extra) => `<div class="${o.cls} bk m-card ${extra || ''}" style="--bc:${b.c}">${inner}</div>`;
     if (v.id === 'm1') return box(`<div class="m-b"><span class="ty-cap">${ico}${name}</span>${T}${meta}${rest}</div>`);
-    if (v.id === 'm7') return box(`<span class="m-plain">${ico}</span><div class="m-b"><span class="ty-over">${name}</span>${T}${meta}${rest}</div>`);
-    if (v.id === 'm8') return box(`<span class="m-band m-band-ico">${ico}</span><div class="m-b"><span class="ty-over">${name}</span>${T}${meta}${rest}</div>`);
+    if (v.id === 'm7') return box(`<span class="m-plain">${ico}</span><div class="m-b">${over}${T}${meta}${rest}</div>`);
+    if (v.id === 'm8') return box(`<span class="m-band m-band-ico">${ico}</span><div class="m-b">${over}${T}${meta}${rest}</div>`);
     if (v.id === 'm9' || v.id === 'm10') {
       // Тип — первой меткой среди тем, тем же овалом; без тем — своей строкой.
       const tag = `<span class="tag ty-tag" style="--tc:${b.c}">${name}</span>`, at = rest.lastIndexOf('<div class="chips">');
-      const r2 = rest.includes('<div class="tags">') ? rest.replace('<div class="tags">', `<div class="tags">${tag}`)
+      const r2 = !name ? rest : rest.includes('<div class="tags">') ? rest.replace('<div class="tags">', `<div class="tags">${tag}`)
         : at >= 0 ? rest.slice(0, at) + `<div class="chips">${tag}` + rest.slice(at + 19) : `<div class="tags">${tag}</div>${rest}`;
       const lead = v.id === 'm9' ? `<span class="m-plain">${ico}</span>` : `<span class="m-band m-band-ico">${ico}</span>`;
       return box(`${lead}<div class="m-b">${T}${meta}${r2}</div>`);
     }
-    if (v.id === 'm6') return box(`<span class="m-band m-band-up">${ico}<span class="m-up">${name}</span></span><div class="m-b">${T}${meta}${rest}</div>`);
-    if (v.id === 'm2') return box(`<span class="m-band">${ico}<span>${name}</span></span><div class="m-b">${T}${meta}${rest}</div>`);
-    if (v.id === 'm3') return box(`<div class="m-top"><span class="bm-col"><span class="bm-ico">${ico}</span><span class="bm-lbl">${name}</span></span><div class="m-tt">${T}${meta}</div></div>${rest ? `<div class="m-bot">${rest}</div>` : ''}`, 'm-col');
-    if (v.id === 'm4') return box(`<div class="m-b"><div class="m-head"><span class="ty-dot">${ico}</span><span class="ty-word">${name}</span>${o.meta ? `<span class="t3">· ${o.meta}</span>` : ''}</div>${T}${rest}</div>`);
-    return box(`<span class="m-spine">${ico}<span class="m-vert">${name}</span></span><div class="m-b">${T}${meta}${rest}</div>`);
+    if (v.id === 'm6') return box(`<span class="m-band m-band-up">${ico}${name ? `<span class="m-up">${name}</span>` : ''}</span><div class="m-b">${T}${meta}${rest}</div>`);
+    if (v.id === 'm2') return box(`<span class="m-band">${ico}${name ? `<span>${name}</span>` : ''}</span><div class="m-b">${T}${meta}${rest}</div>`);
+    if (v.id === 'm3') return box(`<div class="m-top"><span class="bm-col"><span class="bm-ico">${ico}</span>${name ? `<span class="bm-lbl">${name}</span>` : ''}</span><div class="m-tt">${T}${meta}</div></div>${rest ? `<div class="m-bot">${rest}</div>` : ''}`, 'm-col');
+    if (v.id === 'm4') return box(`<div class="m-b"><div class="m-head"><span class="ty-dot">${ico}</span>${name ? `<span class="ty-word">${name}</span>` : ''}${o.meta ? `<span class="t3">${name ? '· ' : ''}${o.meta}</span>` : ''}</div>${T}${rest}</div>`);
+    return box(`<span class="m-spine">${ico}${name ? `<span class="m-vert">${name}</span>` : ''}</span><div class="m-b">${T}${meta}${rest}</div>`);
   }
   // Раунд 5 (06.11): значок и тип вплетены в текст карточки, без отдельной колонки.
   const LTYPE = ['l1', 'l2', 'l3', 'l4'];
