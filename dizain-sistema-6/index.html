@@ -1839,16 +1839,15 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
     const group = list => compact
       ? `<div class="grid2">${list.map(LTYPE.includes(v.id) ? kcardL : kcard).join('')}</div>`
       : `<div class="list${wide ? ' cols2' : ''}">${list.map(rcard).join('')}</div>`;
+    // Раунд 6: в первом экране — книги разных видов (книга, сборник), курсы ниже.
+    const mixed = [DATA.books[0], DATA.books[5], ...DATA.books.slice(1, 5)];
     const sec = (t, n) => `<div class="sh"><span>${t}</span><span class="n">${n}</span><span class="sp"></span>${I('expand_less', 'mut')}</div>`;
     return `${appbar(v, AS_APP.includes(v.id) || v.id === 'shad' ? 'Pro Islam' : 'Библиотека', { acts: ['sort'] })}
       <div class="body">
         ${search('Поиск по книгам и текстам', true)}
         <div class="sh plain"><span>Продолжить</span></div>
         <div class="hs">${contCards}</div>
-        ${sec('Курсы', 4)}
-        ${group(DATA.courses)}
-        ${sec('Книги', 7)}
-        ${group(DATA.books)}
+        ${MTYPE.includes(v.id) ? `${sec('Книги', 7)}${group(mixed)}${sec('Курсы', 4)}${group(DATA.courses)}` : `${sec('Курсы', 4)}${group(DATA.courses)}${sec('Книги', 7)}${group(DATA.books)}`}
       </div>${navbar(v, 0)}`;
   }
 
