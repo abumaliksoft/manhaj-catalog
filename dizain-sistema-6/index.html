@@ -1054,6 +1054,8 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
 .th-dark .at.red{color:#EF9A9A}
 .dev .m-line{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px}
 .dev .m-line .ci{margin-top:0}
+.dev .chip.chip-n{border-color:transparent;background:var(--field);color:var(--mut)}
+.dev .chip.chip-i{gap:4px;padding:0 9px}
 
 .ctlbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--p-bg) 94%,transparent);backdrop-filter:blur(8px);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--p-line)}
 .ctlbar .lbl{font-size:13px;color:var(--p-mut)}
@@ -1201,6 +1203,31 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
   <div class="sys-h"><span class="code">М12</span><h2>Как М11, главы и значки одной строкой</h2></div>
   <p>Всё как в М11, но в карточке библиотеки число глав и значки содержания стоят одной строкой под названием: «51 глава · Матн · Текст · Аудио». Карточка на строку ниже.</p>
   <div class="stage" data-v="m12"></div>
+  
+</section>
+
+<section class="sys" id="v-chips">
+  <div class="sys-h"><h2>Строка «главы и содержание» на странице книги</h2></div>
+  <p>Карточка — М12. Меняется только ряд овалов под автором на странице книги и в листе «О книге» (у них общая шапка). Остальное как в М12.</p>
+  <div class="sys-h" style="margin-top:8px"><span class="code">Ч0</span><h3 style="font-size:18px;margin:0">Как сейчас в М12</h3></div>
+  <p>«51 глава · Матн · Текст 1 · Аудио 230» — все четыре одинаковыми овалами. «Текст 1» читается как «текст номер один».</p>
+  <div class="stage" data-v="m12" data-screens="book,info" data-chip="0"></div>
+  
+  <div class="sys-h" style="margin-top:8px"><span class="code">Ч1</span><h3 style="font-size:18px;margin:0">Без единичного числа</h3></div>
+  <p>То же, но число показывается только от двух: «Текст» вместо «Текст 1». Так же, как значки на карточке.</p>
+  <div class="stage" data-v="m12" data-screens="book,info" data-chip="1"></div>
+  
+  <div class="sys-h" style="margin-top:8px"><span class="code">Ч2</span><h3 style="font-size:18px;margin:0">Число впереди везде</h3></div>
+  <p>Один порядок «число + слово»: «51 глава · Матн · 1 текст · 230 аудио». Читается фразой.</p>
+  <div class="stage" data-v="m12" data-screens="book,info" data-chip="2"></div>
+  
+  <div class="sys-h" style="margin-top:8px"><span class="code">Ч3</span><h3 style="font-size:18px;margin:0">Главы отдельно от содержания</h3><span class="pill acc">рекомендация разработки</span></div>
+  <p>«51 глава» — серым залитым овалом без значка (размер книги), дальше контурные овалы того, что в ней есть: «Матн · Текст · Аудио 230». Единичного числа нет.</p>
+  <div class="stage" data-v="m12" data-screens="book,info" data-chip="3"></div>
+  
+  <div class="sys-h" style="margin-top:8px"><span class="code">Ч4</span><h3 style="font-size:18px;margin:0">Только значки</h3></div>
+  <p>«51 глава», дальше значки без названий, число только у аудио: короче всего, ряд точно в одну строку, но названия вкладок пропадают.</p>
+  <div class="stage" data-v="m12" data-screens="book,info" data-chip="4"></div>
   
 </section>
 
@@ -1904,10 +1931,20 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
   }
 
   // Шапка книги М11 — та же в листе «О книге» (в приложении это общий DetailHeader).
+  // Строка «главы + содержание» в шапке книги: Ч0 как в М12, Ч1–Ч4 — варианты (06.11).
+  let CHIP = '0';
+  function chipRow(b) {
+    const ch = (b.meta.match(/\d+ глав[а-я]*/) || [''])[0], c = (cls, ic, l) => `<span class="chip${cls}">${ic ? I(ic, 'sm') : ''}${l}</span>`;
+    const no1 = l => l.replace(/ 1$/, '');
+    if (CHIP === '1') return c('', '', ch) + b.tabs.map(([ic, l]) => c('', ic, no1(l))).join('');
+    if (CHIP === '2') return c('', '', ch) + c('', 'format_quote', 'Матн') + c('', 'article', '1 текст') + c('', 'headphones', '230 аудио');
+    if (CHIP === '3') return c(' chip-n', '', ch) + b.tabs.map(([ic, l]) => c('', ic, no1(l))).join('');
+    if (CHIP === '4') return c('', '', ch) + b.tabs.map(([ic, l]) => c(' chip-i', ic, (l.match(/ (\d{2,})$/) || ['', ''])[1])).join('');
+    return c('', '', ch) + b.tabs.map(([ic, l]) => c('', ic, l)).join('');
+  }
   function headM(v, b) {
-    const chips = b.tabs.map(([ic, l]) => `<span class="chip">${I(ic, 'sm')}${l}</span>`).join('');
     const topics = b.topics.map(([l, c]) => `<span class="tag" style="--tc:${bookColour(c)}">${l}</span>`).join('');
-    return mcard(v, { id: '40_hadis', c: b.c }, { cls: 'hero', tcls: 'ht', title: b.title, meta: '', rest: `<div class="har" dir="rtl" lang="ar">${b.ar}</div><div class="t2" dir="rtl" lang="ar">${b.author}</div><div class="chips"><span class="chip">${(b.meta.match(/\d+ глав[а-я]*/) || [''])[0]}</span>${chips}</div><div class="chips">${topics}</div>` });
+    return mcard(v, { id: '40_hadis', c: b.c }, { cls: 'hero', tcls: 'ht', title: b.title, meta: '', rest: `<div class="har" dir="rtl" lang="ar">${b.ar}</div><div class="t2" dir="rtl" lang="ar">${b.author}</div><div class="chips">${chipRow(b)}</div><div class="chips">${topics}</div>` });
   }
 
   // Лист «О книге» (кнопка «i» на карточке; в «Продолжить» — пункт меню).
@@ -1937,7 +1974,7 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
     const ch = b.chapters.map(([n, t, a, read], i) => `<div class="chr${i === 1 ? ' cur' : ''}"><span class="chn">${n || '·'}</span><div class="chr-b"><div class="t1">${t}</div><div class="t3 icons">${I('format_quote', 'sm')}${i === 0 ? I('article', 'sm') : ''}${I('headphones', 'sm')} ${a}</div></div>${read ? I('check_circle', 'rd fill') : ''}</div>`).join('');
     return `${appbar(v, '', { back: true, backLabel: 'Библиотека', acts: ['bookmark', 'search', 'more_vert'] })}
       <div class="body narrow">
-        ${MTYPE.includes(v.id) ? mcard(v, { id: '40_hadis', c: b.c }, { cls: 'hero', tcls: 'ht', title: b.title, meta: ['m11', 'm12'].includes(v.id) ? '' : b.meta.replace('Книга · ', ''), rest: `<div class="har" dir="rtl" lang="ar">${b.ar}</div><div class="t2" dir="rtl" lang="ar">${b.author}</div><div class="chips">${['m11', 'm12'].includes(v.id) ? `<span class="chip">${(b.meta.match(/\d+ глав[а-я]*/) || [''])[0]}</span>` : ''}${chips}</div><div class="chips">${topics}</div>` }) : `<div class="hero bk" style="--bc:${b.c}">${v.id === 'm3e' || v.id === 'hig' ? `<span class="hero-art" style="--bc:${b.c}">${I('menu_book', 'fill')}</span>` : ''}${COVER.includes(v.id) ? `<span class="hero-cover" style="--bc:${b.c}"><b>${b.title}</b><i>ан-Навави</i></span>` : ''}${!COVER.includes(v.id) && !LTYPE.includes(v.id) && v.id !== 'm3e' && v.id !== 'hig' ? bookMark(v, { c: b.c }) : ''}
+        ${['m11', 'm12'].includes(v.id) ? headM(v, b) : MTYPE.includes(v.id) ? mcard(v, { id: '40_hadis', c: b.c }, { cls: 'hero', tcls: 'ht', title: b.title, meta: ['m11', 'm12'].includes(v.id) ? '' : b.meta.replace('Книга · ', ''), rest: `<div class="har" dir="rtl" lang="ar">${b.ar}</div><div class="t2" dir="rtl" lang="ar">${b.author}</div><div class="chips">${['m11', 'm12'].includes(v.id) ? `<span class="chip">${(b.meta.match(/\d+ глав[а-я]*/) || [''])[0]}</span>` : ''}${chips}</div><div class="chips">${topics}</div>` }) : `<div class="hero bk" style="--bc:${b.c}">${v.id === 'm3e' || v.id === 'hig' ? `<span class="hero-art" style="--bc:${b.c}">${I('menu_book', 'fill')}</span>` : ''}${COVER.includes(v.id) ? `<span class="hero-cover" style="--bc:${b.c}"><b>${b.title}</b><i>ан-Навави</i></span>` : ''}${!COVER.includes(v.id) && !LTYPE.includes(v.id) && v.id !== 'm3e' && v.id !== 'hig' ? bookMark(v, { c: b.c }) : ''}
           ${LTYPE.includes(v.id) ? `<div class="hero-b">${typed(v, { id: '40_hadis', c: b.c }, b.title, b.meta.replace('Книга · ', ''), '', 'ht')}<div class="har" dir="rtl" lang="ar">${b.ar}</div><div class="t2" dir="rtl" lang="ar">${b.author}</div><div class="chips">${chips}</div><div class="chips">${v.id === 'l4' ? tyPill({ id: '40_hadis', c: b.c }) : ''}${topics}</div></div></div>` : `<div class="hero-b"><h2 class="ht">${b.title}</h2><div class="har" dir="rtl" lang="ar">${b.ar}</div><div class="t2" dir="rtl" lang="ar">${b.author}</div><div class="t2">${NOTYPE.includes(v.id) ? b.meta.replace('Книга · ', '') : `${I('menu_book', 'sm')} ${b.meta}`}</div><div class="chips">${chips}</div><div class="chips">${topics}</div></div></div>`}`}
         <p class="desc">${b.desc}</p>
         <p class="desc mut">Лекторы: ${b.lect}</p>
@@ -1995,7 +2032,8 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
     { id: 'menu', name: 'Долгое нажатие на карточку · меню', fn: scrMenu, only: ['m11', 'm12'] }
   ];
 
-  function frame(v, s, theme, device) {
+  function frame(v, s, theme, device, opts) {
+    CHIP = (opts && opts.chip) || '0';
     const wide = device === 'tablet';
     return `<figure class="mk"><div class="dev ${device} v-${v.id} th-${theme}" style="${vars(v, theme)}">${status()}<div class="scr s-${s.id}">${s.fn(v, wide)}</div>${v.id === 'hig' ? '<div class="home"></div>' : ''}</div><figcaption><span class="vn"><b>${v.code}</b> ${esc(v.name)} — </span>${s.name}</figcaption></figure>`;
   }
@@ -2036,7 +2074,8 @@ html[data-ico="plain"] .dev .ty-dot .ms{font-size:18px}
     document.querySelectorAll('.stage[data-v]').forEach(st => {
       const v = M.VBY[st.dataset.v];
       st.className = 'stage ' + S.device;
-      st.innerHTML = SCREENS.filter(s => !s.only || s.only.includes(v.id)).map(s => M.frame(v, s, S.theme, S.device)).join('');
+      const only = st.dataset.screens ? st.dataset.screens.split(',') : null;
+      st.innerHTML = SCREENS.filter(s => (!s.only || s.only.includes(v.id)) && (!only || only.includes(s.id))).map(s => M.frame(v, s, S.theme, S.device, { chip: st.dataset.chip })).join('');
     });
   }
   render();
